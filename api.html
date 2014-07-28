@@ -211,7 +211,7 @@ In text mode, you get the unicode caracter corresponding to the key pressed (and
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">button can be: 1 for left click, 2 for middle click, 3 for left click, 4 and 5 for mouse wheel.</td>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">button can be: 1 for left click, 2 for middle click, 3 for right click, 4 and 5 for mouse wheel.</td>
 </tr>
 </tbody>
 </table>
@@ -314,7 +314,8 @@ Depending on key repeat system configuration of the player, <tt class="docutils 
 <dl class="class">
 <dt id="drystal.Surface">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Surface</tt><a class="headerlink" href="#drystal.Surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object representing a surface. Surfaces can be drawn on other surfaces (screen included).</p>
+<dd><blockquote>
+<div>Object representing a surface. Surfaces can be drawn on other surfaces (screen included).</div></blockquote>
 <dl class="data">
 <dt id="drystal.Surface:w">
 <tt class="descname">w</tt><a class="headerlink" href="#drystal.Surface:w" title="Permalink to this definition">¶</a></dt>
@@ -330,7 +331,7 @@ Depending on key repeat system configuration of the player, <tt class="docutils 
 <span class="target" id="surface-draw-on"></span><dl class="method">
 <dt id="drystal.Surface:draw_on">
 <tt class="descname">draw_on</tt><big>(</big><big>)</big> &rarr; Surface<a class="headerlink" href="#drystal.Surface:draw_on" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use this surface as backbuffer (draw method be redirected to this surface instead of screen).</p>
+<dd><p>Use this surface as destinatin/backbuffer (draw method be redirected to this surface instead of screen) for futur draws.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -344,7 +345,7 @@ Depending on key repeat system configuration of the player, <tt class="docutils 
 <span class="target" id="surface-draw-from"></span><dl class="method">
 <dt id="drystal.Surface:draw_from">
 <tt class="descname">draw_from</tt><big>(</big><big>)</big> &rarr; Surface<a class="headerlink" href="#drystal.Surface:draw_from" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use this surface for textured draws (like <tt class="docutils literal"><span class="pre">drystal.draw_sprite</span></tt>).</p>
+<dd><p>Use this surface as source for futur textured draws (like <tt class="docutils literal"><span class="pre">drystal.draw_sprite</span></tt>).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -490,7 +491,7 @@ If the file doesn&#8217;t exist or is invalid, <tt class="docutils literal"><spa
 <dl class="function">
 <dt id="drystal.draw_circle">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_circle</tt><big>(</big><em>x</em>, <em>y</em>, <em>radius: float</em><big>)</big><a class="headerlink" href="#drystal.draw_circle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a circle. The coordinate is the position of the center. <tt class="docutils literal"><span class="pre">radius</span></tt> is expressed in pixels.</p>
+<dd><p>Draw a circle. The coordinate is the position of the center. <tt class="docutils literal"><span class="pre">radius</span></tt> is expressed in pixel.</p>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -633,7 +634,7 @@ Use <a class="reference internal" href="#id2"><em>Sprite</em></a> for easier spr
 </div>
 <div class="section" id="buffer">
 <h3>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h3>
-<p>A buffer can only contain one type of shape (point, line, triangle, textured triangle).</p>
+<p>A buffer can <strong>only contain one type of shape</strong> (point, line, triangle, textured triangle).</p>
 <dl class="class">
 <dt id="drystal.Buffer">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Buffer</tt><a class="headerlink" href="#drystal.Buffer" title="Permalink to this definition">¶</a></dt>
@@ -659,7 +660,7 @@ Use <a class="reference internal" href="#id2"><em>Sprite</em></a> for easier spr
 <dt id="drystal.Buffer:upload_and_free">
 <tt class="descname">upload_and_free</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Buffer:upload_and_free" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send the buffer to the graphic card and free memory.
-If a buffer is freed, you cannot call <tt class="docutils literal"><span class="pre">reset</span></tt> or <tt class="docutils literal"><span class="pre">use</span></tt> anymore.</p>
+If a buffer is freed, you cannot call <tt class="docutils literal"><span class="pre">reset</span></tt>, <tt class="docutils literal"><span class="pre">use</span></tt> or <tt class="docutils literal"><span class="pre">upload_and_free</span></tt> anymore or errors with be thrown.</p>
 </dd></dl>
 
 </dd></dl>
@@ -668,7 +669,7 @@ If a buffer is freed, you cannot call <tt class="docutils literal"><span class="
 <dt id="drystal.new_buffer">
 <tt class="descclassname">drystal.</tt><tt class="descname">new_buffer</tt><big>(</big><span class="optional">[</span><em>size: int</em><span class="optional">]</span><big>)</big> &rarr; Buffer<a class="headerlink" href="#drystal.new_buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a buffer of the specified <tt class="docutils literal"><span class="pre">size</span></tt>. <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of the number of points of the shape you put in it.
-For example, if you put triangle, <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of 3.</p>
+For example, if you put triangles, <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of 3.</p>
 </dd></dl>
 
 <dl class="function">
@@ -717,23 +718,21 @@ If one of the code is <tt class="code lua docutils literal"><span class="keyword
 <dd><p>Create a post processing effect.
 The <tt class="docutils literal"><span class="pre">code</span></tt> parameter should contains a <em>effect</em> function.
 Additionnal uniforms can be declared by the <tt class="docutils literal"><span class="pre">uniforms</span></tt> parameter.</p>
-<blockquote>
-<div><div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span class="nb">assert</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">create_postfx</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">gray&#39;</span><span class="p">,</span> <span class="s">[[</span>
-<span class="s">    vec3 effect(sampler2D tex, vec2 coord)</span>
-<span class="s">    {</span>
-<span class="s">        vec3 texval = texture2D(tex, coord).rgb;</span>
-<span class="s">        return mix(texval, vec3((texval.r + texval.g + texval.b) / 3.0), scale);</span>
-<span class="s">    }</span>
+<span class="s">   vec3 effect(sampler2D tex, vec2 coord)</span>
+<span class="s">   {</span>
+<span class="s">       vec3 texval = texture2D(tex, coord).rgb;</span>
+<span class="s">       return mix(texval, vec3((texval.r + texval.g + texval.b) / 3.0), scale);</span>
+<span class="s">   }</span>
 <span class="s">]]</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;</span><span class="s">scale&#39;</span><span class="p">}))</span>
 </pre></div>
 </td></tr></table></div>
-</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -742,8 +741,8 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dd><blockquote>
 <div>Apply a post processing effect on the current <em>draw on</em> surface. The uniform list should have the same order than in the declaration of the effect.</div></blockquote>
 <div class="code highlight-lua"><div class="highlight"><pre><span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
-    <span class="o">...</span>
-    <span class="n">drystal</span><span class="p">.</span><span class="n">postfx</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">gray&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+   <span class="o">...</span>
+   <span class="n">drystal</span><span class="p">.</span><span class="n">postfx</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">gray&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 </div>
@@ -832,42 +831,59 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dl class="class">
 <dt id="drystal.Font">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Font</tt><a class="headerlink" href="#drystal.Font" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><span class="target" id="font-draw"></span><dl class="method">
 <dt id="drystal.Font:draw">
-<tt class="descname">draw</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.Font:draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">draw</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em><span class="optional">[</span>, <em>alignment=1: int</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.Font:draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw <tt class="docutils literal"><span class="pre">text</span></tt> at given coordinates.
+Supports &#8216;\n&#8217;.
+A particular syntax can be used to create some text effects, for example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="code lua docutils literal"><span class="literal string double"><span class="pre">&quot;</span></span><span class="literal string"><span class="pre">test</span> <span class="pre">{r:255|g:0|b:0|!}&quot;</span></span></tt> will print the <tt class="docutils literal"><span class="pre">!</span></tt> in red,</li>
+<li><tt class="code lua docutils literal"><span class="literal string double"><span class="pre">&quot;</span></span><span class="literal string"><span class="pre">{outline|outg:255|t{nooutline|e}st}&quot;</span></span></tt> will print <tt class="docutils literal"><span class="pre">test</span></tt> with a green outline, except the <tt class="docutils literal"><span class="pre">e</span></tt>.</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><ul class="first last simple">
+<li>if alignment is 1, text is left aligned (default)</li>
+<li>if alignment is 2, text is centered around <tt class="docutils literal"><span class="pre">x</span></tt>.</li>
+<li>if alignment is 3, text is right aligned``x``.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
-<dl class="method">
+<span class="target" id="font-draw-plain"></span><dl class="method">
 <dt id="drystal.Font:draw_plain">
 <tt class="descname">draw_plain</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.Font:draw_plain" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="drystal.Font:draw_align">
-<tt class="descname">draw_align</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em>, <em>alignemt: str</em><big>)</big><a class="headerlink" href="#drystal.Font:draw_align" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="drystal.Font:draw_align_plain">
-<tt class="descname">draw_align_plain</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em>, <em>alignemt: str</em><big>)</big><a class="headerlink" href="#drystal.Font:draw_align_plain" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Same as <a class="reference internal" href="#font-draw"><em>draw</em></a>, except it doesn&#8217;t align nor accept formating.
+Use this function for faster text drawing.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Font:sizeof">
-<tt class="descname">sizeof</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#drystal.Font:sizeof" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">sizeof</tt><big>(</big><em>text</em><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.Font:sizeof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns width and height the text would use if it was drawn on the screen.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Font:sizeof_plain">
 <tt class="descname">sizeof_plain</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#drystal.Font:sizeof_plain" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns width and height the text would use if it was drawn on the screen by <a class="reference internal" href="#font-draw-plain"><em>draw_plain</em></a>.</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.load_font">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_font</tt><big>(</big><em>filename: str</em>, <em>size: float) -&gt; Font | (nil</em>, <em>error</em><big>)</big><a class="headerlink" href="#drystal.load_font" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load a truetype font (.ttf file) at desired size.</p>
+</dd></dl>
 
 </div>
 <div class="section" id="particle-system">
@@ -975,6 +991,7 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 </div>
 <div class="section" id="physic">
 <h2>Physic<a class="headerlink" href="#physic" title="Permalink to this headline">¶</a></h2>
+<p>Learning how to use <a class="reference external" href="http://box2d.org/">Box2D</a> will help to hunder Drystal&#8217;s physic module.</p>
 <dl class="function">
 <dt id="drystal.create_world">
 <tt class="descclassname">drystal.</tt><tt class="descname">create_world</tt><big>(</big><em>gravity_x: float</em>, <em>gravity_y: float</em><big>)</big><a class="headerlink" href="#drystal.create_world" title="Permalink to this definition">¶</a></dt>
@@ -987,7 +1004,8 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dl class="function">
 <dt id="drystal.update_physic">
 <tt class="descclassname">drystal.</tt><tt class="descname">update_physic</tt><big>(</big><em>dt: float</em><big>)</big><a class="headerlink" href="#drystal.update_physic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Update the world.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.on_collision">
@@ -1001,18 +1019,30 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 
 <dl class="function">
 <dt id="drystal.query">
-<tt class="descclassname">drystal.</tt><tt class="descname">query</tt><big>(</big><em>todo</em><big>)</big><a class="headerlink" href="#drystal.query" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">query</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em><big>)</big> &rarr; table<a class="headerlink" href="#drystal.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a table with all bodies contains inside the area defined by <tt class="docutils literal"><span class="pre">x1</span></tt>, <tt class="docutils literal"><span class="pre">y1</span></tt>, <tt class="docutils literal"><span class="pre">x2</span></tt> and <tt class="docutils literal"><span class="pre">y1</span></tt>.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.new_shape">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>todo</em><big>)</big><a class="headerlink" href="#drystal.new_shape" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'box'</em>, <em>width</em>, <em>height</em>, <em>centerx</em>, <em>centery</em><big>)</big><a class="headerlink" href="#drystal.new_shape" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'circle'</em>, <em>radius</em><big>)</big></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'chain'</em>, <em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>...</em><big>)</big></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="drystal.new_body">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_body</tt><big>(</big><em>todo</em><big>)</big><a class="headerlink" href="#drystal.new_body" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_body</tt><big>(</big><em>is_dynamic: boolean</em>, <span class="optional">[</span><em>x</em>, <em>y</em>, <span class="optional">]</span><em>shape1</em>, <em>shape2</em>, <em>...</em><big>)</big><a class="headerlink" href="#drystal.new_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a body at given position (or 0, 0) with given shapes. If <tt class="docutils literal"><span class="pre">is_dynamic</span></tt> is false, the body will be static.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.new_joint">
@@ -1257,19 +1287,22 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dd><dl class="method">
 <dt id="drystal.Music:play">
 <tt class="descname">play</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Music:play" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Play the music (from the beginning).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Music:stop">
 <tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Music:stop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stop the music.</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.load_music">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_music</tt><big>(</big><em>filename: str) -&gt; Music | (nil</em>, <em>error</em><big>)</big><a class="headerlink" href="#drystal.load_music" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load a music from a file. It has to be in <a class="reference external" href="https://en.wikipedia.org/wiki/Ogg">Ogg</a> format.</p>
+</dd></dl>
 
 <dl class="function">
 <dt>
@@ -1287,18 +1320,33 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dd><dl class="method">
 <dt id="drystal.Sound:play">
 <tt class="descname">play</tt><big>(</big><span class="optional">[</span><em>volume=1</em><span class="optional">[</span>, <em>x=0</em><span class="optional">[</span>, <em>y=0</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.Sound:play" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Play the sound at given volume and position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">volume float between 0 and 1</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Param:</th><td class="field-body">x float between -1 and 1 (-1 is full left, 1 is full right)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">y float between -1 and 1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.load_sound">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_sound</tt><big>(</big><em>filename: str) -&gt; Sound | (nil</em>, <em>error</em><big>)</big><a class="headerlink" href="#drystal.load_sound" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load a sound from a file. It has to be in <a class="reference external" href="https://en.wikipedia.org/wiki/WAV">WAV</a> format. Only 44100Hz, 8 bits or 16 bits are supported.
+If you want to use positional audio, it has to be mono audio.</p>
+</dd></dl>
 
 <dl class="function">
 <dt>
-<tt class="descclassname">drystal.</tt><tt class="descname">load_sound</tt><big>(</big><em>callback: function) -&gt; Sound | (nil</em>, <em>error</em><big>)</big></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">load_sound</tt><big>(</big><em>callback: function</em>, <em>numsamples: int) -&gt; Sound | (nil</em>, <em>error</em><big>)</big></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -1314,15 +1362,19 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 </div>
 <div class="section" id="storage">
 <h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<p>In browser, this module uses Javascript&#8217;s localStorage feature. In desktop, it uses files.</p>
+<p>Storage is a way to store data for futur executions.</p>
 <dl class="function">
 <dt id="drystal.store">
 <tt class="descclassname">drystal.</tt><tt class="descname">store</tt><big>(</big><em>key: str</em>, <em>value: table</em><big>)</big><a class="headerlink" href="#drystal.store" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Store a table in the storage.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.fetch">
-<tt class="descclassname">drystal.</tt><tt class="descname">fetch</tt><big>(</big><em>key: str</em><big>)</big> &rarr; table<a class="headerlink" href="#drystal.fetch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">fetch</tt><big>(</big><em>key: str</em><big>)</big> &rarr; table | nil<a class="headerlink" href="#drystal.fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the table associated with the given key.</p>
+</dd></dl>
 
 <div class="code highlight-lua"><div class="highlight"><pre><span class="n">drystal</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">test&#39;</span><span class="p">,</span> <span class="p">{</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">wow&#39;</span><span class="p">})</span>
 <span class="nb">assert</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">test&#39;</span><span class="p">).</span><span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">wow&#39;</span><span class="p">)</span>
