@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; Drystal v1alpha documentation</title>
+  <title>API Reference &mdash; Drystal v1.0 documentation</title>
   
 
   
@@ -28,7 +28,8 @@
   
 
   
-    <link rel="top" title="Drystal v1alpha documentation" href="index.html"/>
+    <link rel="top" title="Drystal v1.0 documentation" href="index.html"/>
+        <link rel="next" title="Resources" href="resources.html"/>
         <link rel="prev" title="Welcome to Drystal’s User Guide!" href="index.html"/> 
 
   
@@ -68,6 +69,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#storage">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#web">Web</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#useful-links">Useful links</a></li>
 </ul>
 </li>
 </ul>
@@ -111,13 +116,13 @@
 <span class="target" id="drystal-stop"></span><dl class="function">
 <dt id="drystal.stop">
 <tt class="descclassname">drystal.</tt><tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.stop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stop execution of drystal.</p>
+<dd><p>Stops the execution of drystal.</p>
 </dd></dl>
 
 <span class="target" id="drystal-reload"></span><dl class="function">
 <dt id="drystal.reload">
 <tt class="descclassname">drystal.</tt><tt class="descname">reload</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.reload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reload the current game. This can be useful during the development in native build.</p>
+<dd><p>Reloads the current game. This can be useful during the development on your desktop.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">F3 also reloads the game.</p>
@@ -130,7 +135,7 @@
 <dt id="drystal.init">
 <tt class="descclassname">drystal.</tt><tt class="descname">init</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.init" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is called after script loading, before the first frame.
-You may want to load your asset from here but you can load it before if you prefer.</p>
+You may want to load your assets from here but you can load them before if you prefer.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -147,14 +152,14 @@ You may want to load your asset from here but you can load it before if you pref
 <dl class="function">
 <dt id="drystal.update">
 <tt class="descclassname">drystal.</tt><tt class="descname">update</tt><big>(</big><em>dt: float</em><big>)</big><a class="headerlink" href="#drystal.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>This functions is called at each frame. The <tt class="docutils literal"><span class="pre">dt</span></tt> parameter represents the time elapsed since last update (in seconds).
-Use this function to update the game.</p>
+<dd><p>This functions is called at each frame. The <tt class="docutils literal"><span class="pre">dt</span></tt> parameter represents the time elapsed since the last update (in seconds).
+Use this function to update the game state.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.draw" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is called after update.</p>
+<dd><p>This function is called after the <tt class="docutils literal"><span class="pre">update</span></tt> function.</p>
 </dd></dl>
 
 <dl class="function">
@@ -166,14 +171,14 @@ Use this function to update the game.</p>
 <dl class="function">
 <dt id="drystal.prereload">
 <tt class="descclassname">drystal.</tt><tt class="descname">prereload</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.prereload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called before reload of the game (by <a class="reference internal" href="#drystal-reload"><em>reload</em></a>, by pressing F3 or with livereloading).
-You can use it to save current state of the game inside a global so it is still accessible after the reload.</p>
+<dd><p>Called before the game is reloaded (by <a class="reference internal" href="#drystal-reload"><em>reload</em></a>, by pressing F3 or with livereloading).
+You can use it to save the current state of the game inside a global variable, so it will still be accessible after the reload.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.postreload">
 <tt class="descclassname">drystal.</tt><tt class="descname">postreload</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.postreload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called after reload of the game.
+<dd><p>Called after the game was reloaded.
 You can use it to restore the state of the game.</p>
 </dd></dl>
 
@@ -181,17 +186,10 @@ You can use it to restore the state of the game.</p>
 </div>
 <div class="section" id="event">
 <h2>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="start-text"></span><dl class="function">
-<dt id="drystal.start_text">
-<tt class="descclassname">drystal.</tt><tt class="descname">start_text</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.start_text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Begin text mode. Instead of receiving key_press/key_release event, key_text will be received.
-In text mode, you get the unicode caracter corresponding to the key pressed (and modifiers).</p>
-</dd></dl>
-
 <dl class="function">
-<dt id="drystal.stop_text">
-<tt class="descclassname">drystal.</tt><tt class="descname">stop_text</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.stop_text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stop the text mode.</p>
+<dt id="drystal.set_relative_mode">
+<tt class="descclassname">drystal.</tt><tt class="descname">set_relative_mode</tt><big>(</big><em>relative: boolean</em><big>)</big><a class="headerlink" href="#drystal.set_relative_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative mode is when the mouse is hidden and can&#8217;t leave the window/canvas.</p>
 </dd></dl>
 
 <div class="section" id="id1">
@@ -235,7 +233,7 @@ In text mode, you get the unicode caracter corresponding to the key pressed (and
 <dt id="drystal.key_press">
 <tt class="descclassname">drystal.</tt><tt class="descname">key_press</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#drystal.key_press" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when a key is pressed.
-Depending on key repeat system configuration of the player, <tt class="docutils literal"><span class="pre">key_press</span></tt> can be called multiple times even if the user didn&#8217;t released the key. <tt class="docutils literal"><span class="pre">key_release</span></tt> will be called too.</p>
+Depending on key repeat system configuration of the player, <tt class="docutils literal"><span class="pre">key_press</span></tt> can be called multiple times even if the user did not released the key. <tt class="docutils literal"><span class="pre">key_release</span></tt> will be called too.</p>
 </dd></dl>
 
 <dl class="function">
@@ -247,7 +245,7 @@ Depending on key repeat system configuration of the player, <tt class="docutils 
 <dl class="function">
 <dt id="drystal.key_text">
 <tt class="descclassname">drystal.</tt><tt class="descname">key_text</tt><big>(</big><em>unicode_key</em><big>)</big><a class="headerlink" href="#drystal.key_text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called in text mode (see <a class="reference internal" href="#start-text"><em>start_text</em></a>).</p>
+<dd><p>Called when a key is pressed, <tt class="docutils literal"><span class="pre">unicode_key</span></tt> is the character generated by the key plus the current modifiers.</p>
 </dd></dl>
 
 <div class="code highlight-lua"><div class="highlight"><pre><span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">mouse_motion</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -282,7 +280,7 @@ Depending on key repeat system configuration of the player, <tt class="docutils 
 <dl class="function">
 <dt id="drystal.resize">
 <tt class="descclassname">drystal.</tt><tt class="descname">resize</tt><big>(</big><em>width: int</em>, <em>height: int</em><big>)</big><a class="headerlink" href="#drystal.resize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resize the window (canvas in case of web build) to the dimensions specified.</p>
+<dd><p>Resizes the window (or the canvas in the browser) to the specified dimensions.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Unlike some engines, you can resize the window without having to recreate your surfaces or shaders.</p>
@@ -297,15 +295,37 @@ Depending on key repeat system configuration of the player, <tt class="docutils 
 </dd></dl>
 
 <dl class="function">
+<dt id="drystal.set_fullscreen">
+<tt class="descclassname">drystal.</tt><tt class="descname">set_fullscreen</tt><big>(</big><em>fullscreen: bool</em><big>)</big><a class="headerlink" href="#drystal.set_fullscreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the fullscreen mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It will make the game fits the whole page in a browser and not use
+the fullscreen mode. We choose this behavior because the echap key will not
+be available anymore and it makes less sense to play a game in fullscreen with a browser.
+You also need to ensure that there is no border or margin for the canvas in your index.html.</p>
+</div>
+<div class="highlight-css"><div class="highlight"><pre><span class="nt">html</span><span class="o">,</span><span class="nt">body</span> <span class="p">{</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="drystal.set_title">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_title</tt><big>(</big><em>title: str</em><big>)</big><a class="headerlink" href="#drystal.set_title" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the title of the window. In Web build, the title of the document is changed.</p>
+<dd><p>Changes the title of the window. In the browser, the title of the document is changed.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.show_cursor">
 <tt class="descclassname">drystal.</tt><tt class="descname">show_cursor</tt><big>(</big><em>show: bool</em><big>)</big><a class="headerlink" href="#drystal.show_cursor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decide if the mouse cursor should be hidden or not.</p>
+<dd><p>Decides if the mouse cursor should be hidden or not.</p>
 </dd></dl>
 
 </div>
@@ -374,7 +394,7 @@ Depending on key repeat system configuration of the player, <tt class="docutils 
 <dl class="function">
 <dt id="drystal.new_surface">
 <tt class="descclassname">drystal.</tt><tt class="descname">new_surface</tt><big>(</big><em>width</em>, <em>height</em><big>)</big><a class="headerlink" href="#drystal.new_surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create new surface of dimensions (<tt class="docutils literal"><span class="pre">width</span></tt>, <tt class="docutils literal"><span class="pre">height</span></tt>).
+<dd><p>Creates a new surface of dimensions (<tt class="docutils literal"><span class="pre">width</span></tt>, <tt class="docutils literal"><span class="pre">height</span></tt>).
 By default, the surface is black.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -394,8 +414,8 @@ By default, the surface is black.</p>
 <dl class="function">
 <dt id="drystal.load_surface">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_surface</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#drystal.load_surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a surface from a file.
-If the file doesn&#8217;t exist or is invalid, <tt class="docutils literal"><span class="pre">load_surface</span></tt> returns (<cite>nil</cite>, error).</p>
+<dd><p>Loads a surface from a file.
+If the file does not exist or is invalid, <tt class="docutils literal"><span class="pre">load_surface</span></tt> returns (<cite>nil</cite>, error).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Use <tt class="code lua docutils literal"><span class="name builtin"><span class="pre">assert</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">drystal</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">load_surface</span></span> <span class="literal string single"><span class="pre">'</span></span><span class="literal string"><span class="pre">test.png'</span></span><span class="punctuation"><span class="pre">)</span></span></tt> to make sure the surface is loaded.</p>
@@ -408,31 +428,31 @@ If the file doesn&#8217;t exist or is invalid, <tt class="docutils literal"><spa
 <span class="target" id="set-color"></span><dl class="function">
 <dt id="drystal.set_color">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_color</tt><big>(</big><em>red: float [0-255], green: float [0-255], blue: float [0-255]</em><big>)</big><a class="headerlink" href="#drystal.set_color" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set current color, used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions.</p>
+<dd><p>Sets current color used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions.</p>
 </dd></dl>
 
 <span class="target" id="set-alpha"></span><dl class="function">
 <dt id="drystal.set_alpha">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_alpha</tt><big>(</big><em>alpha: float [0-255]</em><big>)</big><a class="headerlink" href="#drystal.set_alpha" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set current alpha, used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions.</p>
+<dd><p>Sets the current alpha used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.set_line_width">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_line_width</tt><big>(</big><em>width: float</em><big>)</big><a class="headerlink" href="#drystal.set_line_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set current line width, used by <a class="reference internal" href="#draw-line"><em>draw_line</em></a>.</p>
+<dd><p>Sets the current line width used by <a class="reference internal" href="#draw-line"><em>draw_line</em></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.set_point_size">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_point_size</tt><big>(</big><em>size float</em><big>)</big><a class="headerlink" href="#drystal.set_point_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set current point size, used by <a class="reference internal" href="#draw-point"><em>draw_point</em></a>.</p>
+<dd><p>Sets the current point size used by <a class="reference internal" href="#draw-point"><em>draw_point</em></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_background">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_background</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.draw_background" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clear current <cite>draw_on</cite> surface.</p>
+<dd><p>Clears the current <cite>draw_on</cite> surface.</p>
 </dd></dl>
 
 <div class="admonition note">
@@ -442,25 +462,25 @@ If the file doesn&#8217;t exist or is invalid, <tt class="docutils literal"><spa
 <span class="target" id="draw-point"></span><dl class="function">
 <dt id="drystal.draw_point">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_point</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.draw_point" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a point at the given coordinate.</p>
+<dd><p>Draws a point at the given coordinate.</p>
 </dd></dl>
 
 <span class="target" id="draw-line"></span><dl class="function">
 <dt id="drystal.draw_line">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_line</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em><big>)</big><a class="headerlink" href="#drystal.draw_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a line between the two given points.</p>
+<dd><p>Draws a line between the two given points.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_triangle">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_triangle</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>x3</em>, <em>y3</em><big>)</big><a class="headerlink" href="#drystal.draw_triangle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a filled triangle between the three given points.</p>
+<dd><p>Draws a filled triangle between the three given points.</p>
 </dd></dl>
 
 <span class="target" id="draw-surface"></span><dl class="function">
 <dt id="drystal.draw_surface">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_surface</tt><big>(</big><em>ix1</em>, <em>iy1</em>, <em>ix2</em>, <em>iy2</em>, <em>ix3</em>, <em>iy3</em>, <em>ox1</em>, <em>oy1</em>, <em>ox2</em>, <em>oy2</em>, <em>ox3</em>, <em>oy3</em><big>)</big><a class="headerlink" href="#drystal.draw_surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a surface (set as <cite>current draw from</cite>). The first 6 parameters represent a triangle in the source texture, the last 6 represent the destination triangle. The can have different size to create deformations.</p>
+<dd><p>Draws a surface (set as <cite>current draw from</cite>). The first 6 parameters represent a triangle in the source texture, the last 6 represent the destination triangle. They can have different sizes to create deformations.</p>
 <p>Tinting is possible by using <a class="reference internal" href="#set-color"><em>set_color</em></a> (255, 255, 255 for no modification).</p>
 </dd></dl>
 
@@ -473,29 +493,29 @@ If the file doesn&#8217;t exist or is invalid, <tt class="docutils literal"><spa
 <dl class="function">
 <dt id="drystal.draw_rect">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_rect</tt><big>(</big><em>x</em>, <em>y</em>, <em>w</em>, <em>h</em><big>)</big><a class="headerlink" href="#drystal.draw_rect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a filled rectangle.</p>
+<dd><p>Draws a filled rectangle.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_rect_rotated">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_rect_rotated</tt><big>(</big><em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>angle: float</em><big>)</big><a class="headerlink" href="#drystal.draw_rect_rotated" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a filled rotated rectangle.</p>
+<dd><p>Draws a filled rotated rectangle.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_square">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_square</tt><big>(</big><em>x</em>, <em>y</em>, <em>w</em>, <em>h</em><big>)</big><a class="headerlink" href="#drystal.draw_square" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a non-filled rectangle.</p>
+<dd><p>Draws a non-filled rectangle.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_circle">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_circle</tt><big>(</big><em>x</em>, <em>y</em>, <em>radius: float</em><big>)</big><a class="headerlink" href="#drystal.draw_circle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a circle. The coordinate is the position of the center. <tt class="docutils literal"><span class="pre">radius</span></tt> is expressed in pixel.</p>
+<dd><p>Draws a circle. The coordinate is the position of the center. <tt class="docutils literal"><span class="pre">radius</span></tt> is expressed in pixel.</p>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Draw circle draws a lot of triangles. If possible, include a circle in your spritesheet and draw it with <a class="reference internal" href="#draw-sprite"><em>draw_sprite</em></a>.</p>
+<p class="last">This function draws a lot of triangles. If possible, include a circle in your spritesheet and draw it with <a class="reference internal" href="#draw-sprite"><em>draw_sprite</em></a>.</p>
 </div>
 </div></blockquote>
 </dd></dl>
@@ -503,25 +523,25 @@ If the file doesn&#8217;t exist or is invalid, <tt class="docutils literal"><spa
 <dl class="function">
 <dt id="drystal.draw_polygon">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_polygon</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>...</em><big>)</big><a class="headerlink" href="#drystal.draw_polygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a filled polygon.</p>
+<dd><p>Draws a filled polygon.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_polyline">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_polyline</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>...</em><big>)</big><a class="headerlink" href="#drystal.draw_polyline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a non-filled polygon.</p>
+<dd><p>Draws a non-filled polygon.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_image">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_image</tt><big>(</big><em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>destx</em>, <em>desty</em><span class="optional">[</span>, <em>destw=w</em><span class="optional">[</span>, <em>desth=h</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.draw_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw an image. It can be resized if <tt class="docutils literal"><span class="pre">destw</span></tt> or <tt class="docutils literal"><span class="pre">desth</span></tt> are different than <tt class="docutils literal"><span class="pre">w</span></tt> and <tt class="docutils literal"><span class="pre">h</span></tt></p>
+<dd><p>Draws an image. It can be resized if <tt class="docutils literal"><span class="pre">destw</span></tt> or <tt class="docutils literal"><span class="pre">desth</span></tt> are different than <tt class="docutils literal"><span class="pre">w</span></tt> and <tt class="docutils literal"><span class="pre">h</span></tt></p>
 </dd></dl>
 
 <span class="target" id="draw-sprite"></span><dl class="function">
 <dt id="drystal.draw_sprite">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_sprite</tt><big>(</big><em>sprite: table</em>, <em>x</em>, <em>y</em><span class="optional">[</span>, <em>transform: table</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.draw_sprite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw a sprite.
+<dd><p>Draws a sprite.
 Use <a class="reference internal" href="#id2"><em>Sprite</em></a> for easier sprite drawing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -628,7 +648,7 @@ Use <a class="reference internal" href="#id2"><em>Sprite</em></a> for easier spr
 <dl class="function">
 <dt id="drystal.reset">
 <tt class="descclassname">drystal.</tt><tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.reset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reset the camera fields to default values.</p>
+<dd><p>Resets the camera fields to default values.</p>
 </dd></dl>
 
 </div>
@@ -653,14 +673,14 @@ Use <a class="reference internal" href="#id2"><em>Sprite</em></a> for easier spr
 <dl class="method">
 <dt id="drystal.Buffer:reset">
 <tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Buffer:reset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all elements from the buffer.</p>
+<dd><p>Removes all elements from the buffer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="drystal.Buffer:upload_and_free">
 <tt class="descname">upload_and_free</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Buffer:upload_and_free" title="Permalink to this definition">¶</a></dt>
-<dd><p>Send the buffer to the graphic card and free memory.
-If a buffer is freed, you cannot call <tt class="docutils literal"><span class="pre">reset</span></tt>, <tt class="docutils literal"><span class="pre">use</span></tt> or <tt class="docutils literal"><span class="pre">upload_and_free</span></tt> anymore or errors with be thrown.</p>
+<dd><p>Sends the buffer to the graphic card and free memory.
+If a buffer is freed, you cannot call <tt class="docutils literal"><span class="pre">reset</span></tt>, <tt class="docutils literal"><span class="pre">use</span></tt> or <tt class="docutils literal"><span class="pre">upload_and_free</span></tt> anymore or errors will be thrown.</p>
 </dd></dl>
 
 </dd></dl>
@@ -668,14 +688,14 @@ If a buffer is freed, you cannot call <tt class="docutils literal"><span class="
 <dl class="function">
 <dt id="drystal.new_buffer">
 <tt class="descclassname">drystal.</tt><tt class="descname">new_buffer</tt><big>(</big><span class="optional">[</span><em>size: int</em><span class="optional">]</span><big>)</big> &rarr; Buffer<a class="headerlink" href="#drystal.new_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a buffer of the specified <tt class="docutils literal"><span class="pre">size</span></tt>. <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of the number of points of the shape you put in it.
+<dd><p>Creates a buffer of the specified <tt class="docutils literal"><span class="pre">size</span></tt>. <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of the number of points of the shape you put in it.
 For example, if you put triangles, <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of 3.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.use_buffer">
 <tt class="descclassname">drystal.</tt><tt class="descname">use_buffer</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.use_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use default drystal buffer.</p>
+<dd><p>Tells drystal to use the default buffer.</p>
 </dd></dl>
 
 </div>
@@ -687,7 +707,7 @@ For example, if you put triangles, <tt class="docutils literal"><span class="pre
 <dd><dl class="method">
 <dt id="drystal.Shader:use">
 <tt class="descname">use</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Shader:use" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use a shader for the following draws.</p>
+<dd><p>Use this shader for the following draws.</p>
 </dd></dl>
 
 <dl class="method">
@@ -700,14 +720,14 @@ For example, if you put triangles, <tt class="docutils literal"><span class="pre
 <dl class="function">
 <dt id="drystal.new_shader">
 <tt class="descclassname">drystal.</tt><tt class="descname">new_shader</tt><big>(</big><span class="optional">[</span><em>vertex: str</em><span class="optional">[</span>, <em>fragment_color: str</em><span class="optional">[</span>, <em>fragment_texture: str</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big> &rarr; Shader<a class="headerlink" href="#drystal.new_shader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a shader with code specified.
+<dd><p>Creates a shader with code specified.
 If one of the code is <tt class="code lua docutils literal"><span class="keyword constant"><span class="pre">nil</span></span></tt>, code of the default shader is used.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.use_shader">
 <tt class="descclassname">drystal.</tt><tt class="descname">use_shader</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.use_shader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use default drystal shader.</p>
+<dd><p>Tells drystal to use the default shader.</p>
 </dd></dl>
 
 <div class="section" id="post-processing">
@@ -715,8 +735,8 @@ If one of the code is <tt class="code lua docutils literal"><span class="keyword
 <dl class="function">
 <dt id="drystal.create_postfx">
 <tt class="descclassname">drystal.</tt><tt class="descname">create_postfx</tt><big>(</big><em>name: str, code: str[, uniforms: table]) -&gt; function | (nil, error</em><big>)</big><a class="headerlink" href="#drystal.create_postfx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a post processing effect.
-The <tt class="docutils literal"><span class="pre">code</span></tt> parameter should contains a <em>effect</em> function.
+<dd><p>Creates a post processing effect.
+The <tt class="docutils literal"><span class="pre">code</span></tt> parameter must contain a <em>effect</em> function.
 Additionnal uniforms can be declared by the <tt class="docutils literal"><span class="pre">uniforms</span></tt> parameter.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -739,7 +759,7 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dt id="drystal.postfx">
 <tt class="descclassname">drystal.</tt><tt class="descname">postfx</tt><big>(</big><em>name: str</em>, <em>uniforms...: floats</em><big>)</big><a class="headerlink" href="#drystal.postfx" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div>Apply a post processing effect on the current <em>draw on</em> surface. The uniform list should have the same order than in the declaration of the effect.</div></blockquote>
+<div>Applies a post processing effect on the current <em>draw on</em> surface. The uniform list must have the same order than in the declaration of the effect.</div></blockquote>
 <div class="code highlight-lua"><div class="highlight"><pre><span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
    <span class="o">...</span>
    <span class="n">drystal</span><span class="p">.</span><span class="n">postfx</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">gray&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
@@ -757,7 +777,7 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dd><dl class="method">
 <dt id="drystal.Sprite:draw">
 <tt class="descname">draw</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Sprite:draw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw the sprite on the current <em>draw on</em> surface.</p>
+<dd><p>Draws the sprite on the current <em>draw on</em> surface.</p>
 </dd></dl>
 
 </dd></dl>
@@ -765,7 +785,7 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dl class="function">
 <dt id="drystal.new_sprite">
 <tt class="descclassname">drystal.</tt><tt class="descname">new_sprite</tt><big>(</big><em>table</em><big>)</big> &rarr; Sprite<a class="headerlink" href="#drystal.new_sprite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a sprite.</p>
+<dd><p>Creates a sprite.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -834,7 +854,7 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 <dd><span class="target" id="font-draw"></span><dl class="method">
 <dt id="drystal.Font:draw">
 <tt class="descname">draw</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em><span class="optional">[</span>, <em>alignment=1: int</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.Font:draw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw <tt class="docutils literal"><span class="pre">text</span></tt> at given coordinates.
+<dd><p>Draws <tt class="docutils literal"><span class="pre">text</span></tt> at the given coordinates.
 Supports &#8216;\n&#8217;.
 A particular syntax can be used to create some text effects, for example:</p>
 <blockquote>
@@ -882,7 +902,7 @@ Use this function for faster text drawing.</p>
 <dl class="function">
 <dt id="drystal.load_font">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_font</tt><big>(</big><em>filename: str</em>, <em>size: float) -&gt; Font | (nil</em>, <em>error</em><big>)</big><a class="headerlink" href="#drystal.load_font" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a truetype font (.ttf file) at desired size.</p>
+<dd><p>Loads a truetype font (.ttf file) at desired size.</p>
 </dd></dl>
 
 </div>
@@ -894,92 +914,122 @@ Use this function for faster text drawing.</p>
 <dd><dl class="method">
 <dt id="drystal.System:start">
 <tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.System:start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Starts emitting over time.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:pause">
 <tt class="descname">pause</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.System:pause" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Pauses emitting over time.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:emit">
 <tt class="descname">emit</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.System:emit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Emits one particle. This function is useful when the system is paused and you want a fixed number of particle emission at one particular frame.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:stop">
 <tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.System:stop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stops emitting over time.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:draw">
 <tt class="descname">draw</tt><big>(</big><em>[x=0: float[, y=0: float])</em><big>)</big><a class="headerlink" href="#drystal.System:draw" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Draws the particles of the system. <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> can be used as offset.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:update">
 <tt class="descname">update</tt><big>(</big><em>dt: float</em><big>)</big><a class="headerlink" href="#drystal.System:update" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Updates the system and emits some particles according to the emission rate.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:is_running">
 <tt class="descname">is_running</tt><big>(</big><big>)</big> &rarr; boolean<a class="headerlink" href="#drystal.System:is_running" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">true</span></tt> if the system is started.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:set_running">
 <tt class="descname">set_running</tt><big>(</big><em>run: boolean</em><big>)</big><a class="headerlink" href="#drystal.System:set_running" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Starts or stops the system.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:add_size">
 <tt class="descname">add_size</tt><big>(</big><em>at_lifetime</em>, <em>size</em><big>)</big><a class="headerlink" href="#drystal.System:add_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a size at a desired particle&#8217;s lifetime.</p>
+</dd></dl>
 
 <dl class="method">
 <dt>
 <tt class="descname">add_size</tt><big>(</big><em>at_lifetime</em>, <em>minsize</em>, <em>maxsize</em><big>)</big></dt>
-<dd></dd></dl>
+<dd><p>Adds a random size at a desired particle&#8217;s lifetime.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:add_color">
 <tt class="descname">add_color</tt><big>(</big><em>at_lifetime</em>, <em>r</em>, <em>g</em>, <em>b</em><big>)</big><a class="headerlink" href="#drystal.System:add_color" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds a color at a desired particle&#8217;s lifetime.</p>
+</dd></dl>
 
 <dl class="method">
 <dt>
 <tt class="descname">add_color</tt><big>(</big><em>at_lifetime</em>, <em>minr</em>, <em>maxr</em>, <em>ming</em>, <em>maxg</em>, <em>minb</em>, <em>maxg</em><big>)</big></dt>
-<dd></dd></dl>
+<dd><p>Adds a random color at a desired particle&#8217;s lifetime.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:set_position">
 <tt class="descname">set_position</tt><big>(</big><em>x: float</em>, <em>y: float</em><big>)</big><a class="headerlink" href="#drystal.System:set_position" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the position of the system.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:get_position">
 <tt class="descname">get_position</tt><big>(</big><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.System:get_position" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the position of the system.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:set_offset">
 <tt class="descname">set_offset</tt><big>(</big><em>x: float</em>, <em>y: float</em><big>)</big><a class="headerlink" href="#drystal.System:set_offset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the maximum position offset of a particle when emitted.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:get_offset">
 <tt class="descname">get_offset</tt><big>(</big><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.System:get_offset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the position offset of a particle when emitted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.System:set_emission_rate">
+<tt class="descname">set_emission_rate</tt><big>(</big><em>frequency: float</em><big>)</big><a class="headerlink" href="#drystal.System:set_emission_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the emission rate of the system (in Hertz).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.System:get_emission_rate">
+<tt class="descname">get_emission_rate</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.System:get_emission_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the emission rate of the system (in Hertz).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:set_lifetime">
 <tt class="descname">set_lifetime</tt><big>(</big><em>min: float</em><span class="optional">[</span>, <em>max=min: float</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.System:set_lifetime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the lifetime of the particles.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.System:get_lifetime">
 <tt class="descname">get_lifetime</tt><big>(</big><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.System:get_lifetime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the lifetime of the particles.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -988,6 +1038,8 @@ Use this function for faster text drawing.</p>
 <tt class="descclassname">drystal.</tt><tt class="descname">new_system</tt><big>(</big><big>)</big> &rarr; System<a class="headerlink" href="#drystal.new_system" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<p>Creates a new particle system.
+By default, attributes are initialized with random values. Make sure to call appropriate setters to obtain the desired particle effect.</p>
 </div>
 <div class="section" id="physic">
 <h2>Physic<a class="headerlink" href="#physic" title="Permalink to this headline">¶</a></h2>
@@ -997,57 +1049,105 @@ Use this function for faster text drawing.</p>
 <tt class="descclassname">drystal.</tt><tt class="descname">create_world</tt><big>(</big><em>gravity_x: float</em>, <em>gravity_y: float</em><big>)</big><a class="headerlink" href="#drystal.create_world" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">If <tt class="docutils literal"><span class="pre">create_world</span></tt> isn&#8217;t called before other physic functions, errors will occur.</p>
+<p class="last">If <tt class="docutils literal"><span class="pre">create_world</span></tt> is not called before other physic functions, errors will occur.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.update_physic">
-<tt class="descclassname">drystal.</tt><tt class="descname">update_physic</tt><big>(</big><em>dt: float</em><big>)</big><a class="headerlink" href="#drystal.update_physic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the world.</p>
+<tt class="descclassname">drystal.</tt><tt class="descname">update_physic</tt><big>(</big><em>dt: float</em><span class="optional">[</span>, <em>timestep=0.01</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.update_physic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the world.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.get_gravity">
+<tt class="descclassname">drystal.</tt><tt class="descname">get_gravity</tt><big>(</big><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.get_gravity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the gravity of the world.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.set_gravity">
+<tt class="descclassname">drystal.</tt><tt class="descname">set_gravity</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.set_gravity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the gravity of the world.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.on_collision">
-<tt class="descclassname">drystal.</tt><tt class="descname">on_collision</tt><big>(</big><em>todo</em><big>)</big><a class="headerlink" href="#drystal.on_collision" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">on_collision</tt><big>(</big><em>on_begin</em>, <em>on_end</em>, <em>on_presolve</em>, <em>on_postsolve</em><big>)</big><a class="headerlink" href="#drystal.on_collision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hooks some callbacks to the collision listener.</p>
+<ul class="simple">
+<li><tt class="code lua docutils literal"><span class="name"><span class="pre">on_begin</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">body1</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">body2</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">y</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">normalx</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">normaly</span></span><span class="punctuation"><span class="pre">)</span></span></tt></li>
+<li><tt class="code lua docutils literal"><span class="name"><span class="pre">on_end</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">body1</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">body2</span></span><span class="punctuation"><span class="pre">)</span></span></tt></li>
+<li><tt class="code lua docutils literal"><span class="name"><span class="pre">on_presolve</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">body1</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">body2</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">y</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">normalx</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">normaly</span></span><span class="punctuation"><span class="pre">)</span></span> <span class="operator"><span class="pre">-&gt;</span></span> <span class="name"><span class="pre">boolean</span></span></tt></li>
+<li><tt class="code lua docutils literal"><span class="name"><span class="pre">on_postsolve</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">body1</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">body2</span></span><span class="punctuation"><span class="pre">)</span></span></tt></li>
+</ul>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.raycast">
-<tt class="descclassname">drystal.</tt><tt class="descname">raycast</tt><big>(</big><em>todo</em><big>)</big><a class="headerlink" href="#drystal.raycast" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">raycast</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>callback</em><big>)</big> &rarr; body, x, y<a class="headerlink" href="#drystal.raycast" title="Permalink to this definition">¶</a></dt>
+<dd><p><tt class="code lua docutils literal"><span class="name"><span class="pre">callback</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">body</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">fraction</span></span><span class="punctuation"><span class="pre">)</span></span> <span class="operator"><span class="pre">-&gt;</span></span> <span class="name"><span class="pre">float</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">boolean</span></span></tt></p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.query">
 <tt class="descclassname">drystal.</tt><tt class="descname">query</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em><big>)</big> &rarr; table<a class="headerlink" href="#drystal.query" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a table with all bodies contains inside the area defined by <tt class="docutils literal"><span class="pre">x1</span></tt>, <tt class="docutils literal"><span class="pre">y1</span></tt>, <tt class="docutils literal"><span class="pre">x2</span></tt> and <tt class="docutils literal"><span class="pre">y1</span></tt>.</p>
+<dd><p>Returns a table with all bodies contained inside the area defined by <tt class="docutils literal"><span class="pre">x1</span></tt>, <tt class="docutils literal"><span class="pre">y1</span></tt>, <tt class="docutils literal"><span class="pre">x2</span></tt> and <tt class="docutils literal"><span class="pre">y1</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.new_shape">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'box'</em>, <em>width</em>, <em>height</em>, <em>centerx</em>, <em>centery</em><big>)</big><a class="headerlink" href="#drystal.new_shape" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'box'</em>, <em>width</em>, <em>height</em>, <em>x</em>, <em>y</em><big>)</big> &rarr; Shape<a class="headerlink" href="#drystal.new_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a <em>box</em> shape.</p>
+</dd></dl>
 
 <dl class="function">
 <dt>
-<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'circle'</em>, <em>radius</em><big>)</big></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'circle'</em>, <em>radius</em>, <em>x</em>, <em>y</em><big>)</big> &rarr; Shape</dt>
+<dd><p>Creates a <em>circle</em> shape.</p>
+</dd></dl>
 
 <dl class="function">
 <dt>
-<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'chain'</em>, <em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>...</em><big>)</big></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'chain'</em>, <em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>...</em><big>)</big> &rarr; Shape</dt>
+<dd><p>Creates a <em>chain</em> shape. The last point will be linked to the first one.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.new_body">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_body</tt><big>(</big><em>is_dynamic: boolean</em>, <span class="optional">[</span><em>x</em>, <em>y</em>, <span class="optional">]</span><em>shape1</em>, <em>shape2</em>, <em>...</em><big>)</big><a class="headerlink" href="#drystal.new_body" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a body at given position (or 0, 0) with given shapes. If <tt class="docutils literal"><span class="pre">is_dynamic</span></tt> is false, the body will be static.</p>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_body</tt><big>(</big><em>is_dynamic: boolean</em>, <span class="optional">[</span><em>x</em>, <em>y</em>, <span class="optional">]</span><em>shape1</em>, <em>shape2</em>, <em>...</em><big>)</big> &rarr; Body<a class="headerlink" href="#drystal.new_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a body at the given position (or 0, 0) with the given shapes. If <tt class="docutils literal"><span class="pre">is_dynamic</span></tt> is false, the body will be static.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.new_joint">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>todo</em><big>)</big><a class="headerlink" href="#drystal.new_joint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'mouse'</em>, <em>body1</em>, <em>body2</em>, <em>max_force</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; MouseJoint<a class="headerlink" href="#drystal.new_joint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a mouse joint.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'distance'</em>, <em>body1</em>, <em>body2</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; DistanceJoint</dt>
+<dd><p>Creates a distance joint.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'rope'</em>, <em>body1</em>, <em>body2</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; RopeJoint</dt>
+<dd><p>Creates a rope joint.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'revolute'</em>, <em>body1</em>, <em>body2</em>, <em>anchor1x</em>, <em>anchor1y</em>, <em>anchor2x</em>, <em>anchor2y</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; RevoluteJoint</dt>
+<dd><p>Creates a revolute joint.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'prismatic'</em>, <em>body1</em>, <em>body2</em>, <em>anchor1x</em>, <em>anchor1y</em>, <em>anchor2x</em>, <em>anchor2y</em>, <em>axisx</em>, <em>axisy</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; PrismaticJoint</dt>
+<dd><p>Creates a prismatic joint.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="drystal.Shape">
@@ -1055,37 +1155,44 @@ Use this function for faster text drawing.</p>
 <dd><dl class="method">
 <dt id="drystal.Shape:set_density">
 <tt class="descname">set_density</tt><big>(</big><em>density: float</em><big>)</big><a class="headerlink" href="#drystal.Shape:set_density" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the density of the shape.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Shape:get_density">
 <tt class="descname">get_density</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.Shape:get_density" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the density of the shape.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Shape:set_restitution">
 <tt class="descname">set_restitution</tt><big>(</big><em>restitution float</em><big>)</big><a class="headerlink" href="#drystal.Shape:set_restitution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the restitution of the shape.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Shape:get_restitution">
 <tt class="descname">get_restitution</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.Shape:get_restitution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the restitution of the shape.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Shape:set_friction">
 <tt class="descname">set_friction</tt><big>(</big><em>friction float</em><big>)</big><a class="headerlink" href="#drystal.Shape:set_friction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the friction of the shape.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Shape:get_friction">
 <tt class="descname">get_friction</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.Shape:get_friction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the friction of the shape.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Shape:set_sensor">
 <tt class="descname">set_sensor</tt><big>(</big><em>sensor: boolean</em><big>)</big><a class="headerlink" href="#drystal.Shape:set_sensor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>If <tt class="docutils literal"><span class="pre">sensor</span></tt> is <tt class="docutils literal"><span class="pre">true</span></tt>, the shape will not collide but the <tt class="docutils literal"><span class="pre">on_collision</span></tt> callback will be called.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -1095,186 +1202,273 @@ Use this function for faster text drawing.</p>
 <dd><dl class="method">
 <dt id="drystal.Body:set_position">
 <tt class="descname">set_position</tt><big>(</big><em>x: float</em>, <em>y: float</em><big>)</big><a class="headerlink" href="#drystal.Body:set_position" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the position of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_position">
 <tt class="descname">get_position</tt><big>(</big><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.Body:get_position" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the position of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_angle">
 <tt class="descname">set_angle</tt><big>(</big><em>angle: float</em><big>)</big><a class="headerlink" href="#drystal.Body:set_angle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the angle of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_angle">
 <tt class="descname">get_angle</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.Body:get_angle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the angle of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_linear_velocity">
 <tt class="descname">set_linear_velocity</tt><big>(</big><em>x: float</em>, <em>y: float</em><big>)</big><a class="headerlink" href="#drystal.Body:set_linear_velocity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the linear velocity of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_linear_velocity">
 <tt class="descname">get_linear_velocity</tt><big>(</big><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.Body:get_linear_velocity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the linear velocity of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_angular_velocity">
 <tt class="descname">set_angular_velocity</tt><big>(</big><em>x: float</em>, <em>y: float</em><big>)</big><a class="headerlink" href="#drystal.Body:set_angular_velocity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the angular velocity of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_angular_velocity">
 <tt class="descname">get_angular_velocity</tt><big>(</big><big>)</big> &rarr; float, float<a class="headerlink" href="#drystal.Body:get_angular_velocity" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the angular velocity of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_linear_damping">
 <tt class="descname">set_linear_damping</tt><big>(</big><em>damping: float</em><big>)</big><a class="headerlink" href="#drystal.Body:set_linear_damping" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the linear damping of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_linear_damping">
 <tt class="descname">get_linear_damping</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.Body:get_linear_damping" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the linear damping of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_angular_damping">
 <tt class="descname">set_angular_damping</tt><big>(</big><em>damping: float</em><big>)</big><a class="headerlink" href="#drystal.Body:set_angular_damping" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the angular damping of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_angular_damping">
 <tt class="descname">get_angular_damping</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.Body:get_angular_damping" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the angular damping of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_fixed_rotation">
 <tt class="descname">set_fixed_rotation</tt><big>(</big><em>fixed: boolean</em><big>)</big><a class="headerlink" href="#drystal.Body:set_fixed_rotation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fixes the rotation of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_fixed_rotation">
 <tt class="descname">get_fixed_rotation</tt><big>(</big><big>)</big> &rarr; boolean<a class="headerlink" href="#drystal.Body:get_fixed_rotation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">true</span></tt> if the body has fixed rotation.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_active">
 <tt class="descname">set_active</tt><big>(</big><em>active: boolean</em><big>)</big><a class="headerlink" href="#drystal.Body:set_active" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Enables or disables a body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_bullet">
 <tt class="descname">set_bullet</tt><big>(</big><em>bullet: boolean</em><big>)</big><a class="headerlink" href="#drystal.Body:set_bullet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Marks the body as a fast moving object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:get_mass">
 <tt class="descname">get_mass</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.Body:get_mass" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the mass of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:set_mass_center">
 <tt class="descname">set_mass_center</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.Body:set_mass_center" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the mass center.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:apply_force">
 <tt class="descname">apply_force</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.Body:apply_force" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Applies a force.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:apply_linear_impulse">
 <tt class="descname">apply_linear_impulse</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.Body:apply_linear_impulse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Applies a linear impulse.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:apply_angular_impulse">
 <tt class="descname">apply_angular_impulse</tt><big>(</big><em>angle</em><big>)</big><a class="headerlink" href="#drystal.Body:apply_angular_impulse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Applies a angular impulse.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:apply_torque">
 <tt class="descname">apply_torque</tt><big>(</big><em>torque</em><big>)</big><a class="headerlink" href="#drystal.Body:apply_torque" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Applies a torque.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:dump">
 <tt class="descname">dump</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Body:dump" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Prints Box2D attributes of the body.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="drystal.Body:destroy">
 <tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Body:destroy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Destroys the body.</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="drystal.Joint">
-<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Joint</tt><a class="headerlink" href="#drystal.Joint" title="Permalink to this definition">¶</a></dt>
+<dt id="drystal.MouseJoint">
+<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">MouseJoint</tt><a class="headerlink" href="#drystal.MouseJoint" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="drystal.Joint:set_target">
-<tt class="descname">set_target</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.Joint:set_target" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">only for mouse joint</p>
-</div>
+<dt id="drystal.MouseJoint:set_target">
+<tt class="descname">set_target</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.MouseJoint:set_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the target position of the joint.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="drystal.Joint:set_length">
-<tt class="descname">set_length</tt><big>(</big><em>length: float</em><big>)</big><a class="headerlink" href="#drystal.Joint:set_length" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">only for distance joint</p>
-</div>
+<dt id="drystal.MouseJoint:destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.MouseJoint:destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the joint.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="drystal.RopeJoint">
+<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">RopeJoint</tt><a class="headerlink" href="#drystal.RopeJoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drystal.RopeJoint:set_max_length">
+<tt class="descname">set_max_length</tt><big>(</big><em>max_length: float</em><big>)</big><a class="headerlink" href="#drystal.RopeJoint:set_max_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the maximum length of the joint</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="drystal.Joint:set_frequency">
-<tt class="descname">set_frequency</tt><big>(</big><em>frequency: float</em><big>)</big><a class="headerlink" href="#drystal.Joint:set_frequency" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">only for distance joint</p>
-</div>
+<dt id="drystal.RopeJoint:destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.RopeJoint:destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the joint.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="drystal.DistanceJoint">
+<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">DistanceJoint</tt><a class="headerlink" href="#drystal.DistanceJoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drystal.DistanceJoint:set_length">
+<tt class="descname">set_length</tt><big>(</big><em>length: float</em><big>)</big><a class="headerlink" href="#drystal.DistanceJoint:set_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the length of the joint</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="drystal.Joint:set_max_length">
-<tt class="descname">set_max_length</tt><big>(</big><em>max_length: float</em><big>)</big><a class="headerlink" href="#drystal.Joint:set_max_length" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">only for distance joint</p>
-</div>
+<dt id="drystal.DistanceJoint:set_frequency">
+<tt class="descname">set_frequency</tt><big>(</big><em>frequency: float</em><big>)</big><a class="headerlink" href="#drystal.DistanceJoint:set_frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the frequency of the joint.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="drystal.Joint:set_angle_limits">
-<tt class="descname">set_angle_limits</tt><big>(</big><em>min</em>, <em>max</em><big>)</big><a class="headerlink" href="#drystal.Joint:set_angle_limits" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">only for revolute joint</p>
-</div>
+<dt id="drystal.DistanceJoint:destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.DistanceJoint:destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the joint.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="drystal.RevoluteJoint">
+<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">RevoluteJoint</tt><a class="headerlink" href="#drystal.RevoluteJoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drystal.RevoluteJoint:set_angle_limits">
+<tt class="descname">set_angle_limits</tt><big>(</big><em>min</em>, <em>max</em><big>)</big><a class="headerlink" href="#drystal.RevoluteJoint:set_angle_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the angle limits of the joint. If <tt class="docutils literal"><span class="pre">min</span></tt> equals <tt class="docutils literal"><span class="pre">max</span></tt>, limits are disabled.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="drystal.Joint:set_motor_speed">
-<tt class="descname">set_motor_speed</tt><big>(</big><em>speed: float</em><span class="optional">[</span>, <em>maxtorque=20: float</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.Joint:set_motor_speed" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">only for revolute joint</p>
-</div>
+<dt id="drystal.RevoluteJoint:set_motor_speed">
+<tt class="descname">set_motor_speed</tt><big>(</big><em>speed: float</em><span class="optional">[</span>, <em>maxtorque=20: float</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.RevoluteJoint:set_motor_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the motor speed. If <tt class="docutils literal"><span class="pre">speed</span></tt> is 0, motor is disabled.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="drystal.Joint:destroy">
-<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Joint:destroy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="drystal.RevoluteJoint:destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.RevoluteJoint:destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the joint.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="drystal.PrismaticJoint">
+<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">PrismaticJoint</tt><a class="headerlink" href="#drystal.PrismaticJoint" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drystal.PrismaticJoint:set_motor_speed">
+<tt class="descname">set_motor_speed</tt><big>(</big><em>speed: float</em><big>)</big><a class="headerlink" href="#drystal.PrismaticJoint:set_motor_speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the motor speed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.PrismaticJoint:set_max_motor_force">
+<tt class="descname">set_max_motor_force</tt><big>(</big><em>force: float</em><big>)</big><a class="headerlink" href="#drystal.PrismaticJoint:set_max_motor_force" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the maximum motor force.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.PrismaticJoint:set_enable_motor">
+<tt class="descname">set_enable_motor</tt><big>(</big><em>enable: boolean</em><big>)</big><a class="headerlink" href="#drystal.PrismaticJoint:set_enable_motor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the motor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.PrismaticJoint:set_enable_limit">
+<tt class="descname">set_enable_limit</tt><big>(</big><em>enable: boolean</em><big>)</big><a class="headerlink" href="#drystal.PrismaticJoint:set_enable_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables the limit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.PrismaticJoint:is_limit_enabled">
+<tt class="descname">is_limit_enabled</tt><big>(</big><big>)</big> &rarr; boolean<a class="headerlink" href="#drystal.PrismaticJoint:is_limit_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">true</span></tt> if the joint has limit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.PrismaticJoint:is_motor_enabled">
+<tt class="descname">is_motor_enabled</tt><big>(</big><big>)</big> &rarr; boolean<a class="headerlink" href="#drystal.PrismaticJoint:is_motor_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <tt class="docutils literal"><span class="pre">true</span></tt> if the motor is enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.PrismaticJoint:destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.PrismaticJoint:destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the joint.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -1293,7 +1487,7 @@ Use this function for faster text drawing.</p>
 <dl class="method">
 <dt id="drystal.Music:stop">
 <tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Music:stop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stop the music.</p>
+<dd><p>Stops the music.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1301,7 +1495,11 @@ Use this function for faster text drawing.</p>
 <dl class="function">
 <dt id="drystal.load_music">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_music</tt><big>(</big><em>filename: str) -&gt; Music | (nil</em>, <em>error</em><big>)</big><a class="headerlink" href="#drystal.load_music" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a music from a file. It has to be in <a class="reference external" href="https://en.wikipedia.org/wiki/Ogg">Ogg</a> format.</p>
+<dd><p>Loads a music from a file.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Only the <a class="reference external" href="https://en.wikipedia.org/wiki/Ogg">Ogg</a> format is available.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -1320,7 +1518,7 @@ Use this function for faster text drawing.</p>
 <dd><dl class="method">
 <dt id="drystal.Sound:play">
 <tt class="descname">play</tt><big>(</big><span class="optional">[</span><em>volume=1</em><span class="optional">[</span>, <em>x=0</em><span class="optional">[</span>, <em>y=0</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.Sound:play" title="Permalink to this definition">¶</a></dt>
-<dd><p>Play the sound at given volume and position.</p>
+<dd><p>Plays the sound at given volume and position.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1340,7 +1538,7 @@ Use this function for faster text drawing.</p>
 <dl class="function">
 <dt id="drystal.load_sound">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_sound</tt><big>(</big><em>filename: str) -&gt; Sound | (nil</em>, <em>error</em><big>)</big><a class="headerlink" href="#drystal.load_sound" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a sound from a file. It has to be in <a class="reference external" href="https://en.wikipedia.org/wiki/WAV">WAV</a> format. Only 44100Hz, 8 bits or 16 bits are supported.
+<dd><p>Loads a sound from a file. It has to be in <a class="reference external" href="https://en.wikipedia.org/wiki/WAV">WAV</a> format. Only 44100Hz, 8 bits or 16 bits are supported.
 If you want to use positional audio, it has to be mono audio.</p>
 </dd></dl>
 
@@ -1367,13 +1565,13 @@ If you want to use positional audio, it has to be mono audio.</p>
 <dl class="function">
 <dt id="drystal.store">
 <tt class="descclassname">drystal.</tt><tt class="descname">store</tt><big>(</big><em>key: str</em>, <em>value: table</em><big>)</big><a class="headerlink" href="#drystal.store" title="Permalink to this definition">¶</a></dt>
-<dd><p>Store a table in the storage.</p>
+<dd><p>Stores a table in the storage.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.fetch">
 <tt class="descclassname">drystal.</tt><tt class="descname">fetch</tt><big>(</big><em>key: str</em><big>)</big> &rarr; table | nil<a class="headerlink" href="#drystal.fetch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve the table associated with the given key.</p>
+<dd><p>Retrieves the table associated with the given key.</p>
 </dd></dl>
 
 <div class="code highlight-lua"><div class="highlight"><pre><span class="n">drystal</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">test&#39;</span><span class="p">,</span> <span class="p">{</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">wow&#39;</span><span class="p">})</span>
@@ -1383,7 +1581,7 @@ If you want to use positional audio, it has to be mono audio.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Serialization of the table is done by a JSON module.
-In web, data are available in <tt class="docutils literal"><span class="pre">localStorage</span></tt> from Javascript.</p>
+In the browser, data are stored in the <tt class="docutils literal"><span class="pre">localStorage</span></tt> from Javascript.</p>
 </div>
 </div>
 <div class="section" id="web">
@@ -1399,7 +1597,7 @@ In web, data are available in <tt class="docutils literal"><span class="pre">loc
 <tt class="descclassname">drystal.</tt><tt class="descname">wget</tt><big>(</big><em>url: string</em>, <em>filename: string</em>, <em>onload: function</em>, <em>onerror: function</em><big>)</big><a class="headerlink" href="#drystal.wget" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last"><tt class="docutils literal"><span class="pre">wget</span></tt> throws an error in native build.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">wget</span></tt> is not available on the desktop and will throw an error if it is used on the desktop.</p>
 </div>
 </dd></dl>
 
@@ -1408,7 +1606,7 @@ In web, data are available in <tt class="docutils literal"><span class="pre">loc
 <tt class="descclassname">drystal.</tt><tt class="descname">run_js</tt><big>(</big><em>script: str</em><big>)</big><a class="headerlink" href="#drystal.run_js" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last"><tt class="docutils literal"><span class="pre">run_js</span></tt> throws an error in native build.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">run_js</span></tt> is not available on the desktop and will throw an error if it is used on the desktop.</p>
 </div>
 </dd></dl>
 
@@ -1416,9 +1614,16 @@ In web, data are available in <tt class="docutils literal"><span class="pre">loc
 <div class="section" id="utils">
 <h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="drystal.display_logo">
-<tt class="descclassname">drystal.</tt><tt class="descname">display_logo</tt><big>(</big><em>sprite: {x</em>, <em>y</em>, <em>w</em>, <em>h}</em>, <em>background: {r</em>, <em>g</em>, <em>b}</em><big>)</big><a class="headerlink" href="#drystal.display_logo" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="drystal.tojson">
+<tt class="descclassname">drystal.</tt><tt class="descname">tojson</tt><big>(</big><em>table</em><big>)</big> &rarr; string<a class="headerlink" href="#drystal.tojson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serializes a Lua table into <a class="reference external" href="http://json.org/">JSON</a> formatted string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.fromjson">
+<tt class="descclassname">drystal.</tt><tt class="descname">fromjson</tt><big>(</big><em>json: string</em><big>)</big> &rarr; table<a class="headerlink" href="#drystal.fromjson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a <a class="reference external" href="http://json.org/">JSON</a> formatted string back into a Lua table.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.file_exists">
@@ -1434,6 +1639,8 @@ In web, data are available in <tt class="docutils literal"><span class="pre">loc
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="resources.html" class="btn btn-neutral float-right" title="Resources"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to Drystal’s User Guide!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1465,7 +1672,7 @@ In web, data are available in <tt class="docutils literal"><span class="pre">loc
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v1alpha',
+            VERSION:'v1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

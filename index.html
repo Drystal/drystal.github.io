@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Drystal’s User Guide! &mdash; Drystal v1alpha documentation</title>
+  <title>Welcome to Drystal’s website! &mdash; Drystal v1.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="Drystal v1alpha documentation" href="#"/>
+    <link rel="top" title="Drystal v1.0 documentation" href="#"/>
         <link rel="next" title="API Reference" href="api.html"/> 
 
   
@@ -70,6 +70,10 @@
 <li class="toctree-l2"><a class="reference internal" href="api.html#utils">Utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#useful-links">Useful links</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -93,7 +97,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
       
-    <li>Welcome to Drystal&#8217;s User Guide!</li>
+    <li>Welcome to Drystal&#8217;s website!</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/index.txt" rel="nofollow"> View page source</a>
@@ -104,8 +108,8 @@
 </div>
           <div role="main">
             
-  <div class="section" id="welcome-to-drystal-s-user-guide">
-<h1>Welcome to Drystal&#8217;s User Guide!<a class="headerlink" href="#welcome-to-drystal-s-user-guide" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-drystal-s-website">
+<h1>Welcome to Drystal&#8217;s website!<a class="headerlink" href="#welcome-to-drystal-s-website" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
@@ -121,50 +125,50 @@
 <li class="toctree-l2"><a class="reference internal" href="api.html#utils">Utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#useful-links">Useful links</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div class="section" id="what-is-drystal">
 <h1>What is Drystal?<a class="headerlink" href="#what-is-drystal" title="Permalink to this headline">¶</a></h1>
-<p>A game engine which allows developpers to program games in Lua.</p>
-<p>Drystal can be run natively (at the moment, only GNU/Linux compilation has been tested) or through a browser.
-<a class="reference external" href="http://www.emscripten.org">Emscripten</a> can compile the engine to Javascript. Browsers need WebGL capabilities.</p>
-<p>Here is an example of a drystal game:</p>
-<div class="highlight-lua"><div class="highlight"><pre><span class="kd">local</span> <span class="n">drystal</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;</span><span class="s">drystal&#39;</span>
-
-<span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
-  <span class="n">drystal</span><span class="p">.</span><span class="n">set_color</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-  <span class="n">drystal</span><span class="p">.</span><span class="n">draw_background</span><span class="p">()</span>
-<span class="k">end</span>
-</pre></div>
-</div>
+<p>Drystal is a Lua 2D game engine.
+It is free and open-source.</p>
+<p>The engine is compiled to Javascript thanks to <a class="reference external" href="http://www.emscripten.org">Emscripten</a>.
+Games can be ran on Linux or on any platform with a recent web browser.</p>
+<p>You can find a game made with Drystal <a class="reference external" href="http://kidanger.github.io/Chronored">here</a>. It has been made in 48h during a Ludum Dare.</p>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><strong>Window</strong> creation: resizable or not, hide cursor</li>
+<li><strong>Window</strong> creation: hide cursor and relative mode</li>
 <li><strong>User events</strong>: keyboard, mouse</li>
 <li><strong>Textures</strong>: load various formats, render to texture support, ability to apply transformations (rotation, resizes)</li>
-<li><strong>Drawing primitives</strong>: lines and triangles from the C++ code, extended by Lua with rectangles (filled or not) and circles</li>
+<li><strong>Drawing primitives</strong>: lines, triangles, rectangles (filled or not), circles and polygons</li>
 <li><strong>Audio</strong> support: multiple musics, multiple sounds at once, loadable from file or from lua-generated buffers</li>
-<li><strong>Shader</strong> support: GLSL</li>
+<li><strong>Shader</strong> support: GLSL and post processing effect facilities</li>
 </ul>
 <p>Some additional modules:</p>
 <ul class="simple">
 <li><strong>Truetype</strong>: loads .ttf files and render. Using the given syntax, you can highlight words with color/size change.</li>
 <li><strong>Web</strong>: adds a wget function to download content (ex: download sounds if needed) or run JS code</li>
 <li><strong>Physic</strong>: uses Box2D to compute physic simulation (not a one-to-one binding)</li>
+<li><strong>Particle</strong> systems</li>
+<li><strong>Storage</strong> to save/load games (even in browser)</li>
 </ul>
 </div>
 <div class="section" id="contribute">
 <h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Source Code: <a class="reference external" href="http://github.com/drystal/drystal">http://github.com/drystal/drystal</a></li>
+<li>Source Code: <a class="reference external" href="http://github.com/kidanger/drystal">http://github.com/kidanger/drystal</a></li>
+<li>Please report any issue here: <a class="reference external" href="http://github.com/kidanger/drystal/issues">http://github.com/kidanger/drystal/issues</a></li>
 </ul>
 </div>
 <div class="section" id="support">
 <h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
-<p>If you are having issues, please let us know.
-We have a mailing list located at: <a class="reference external" href="https://groups.google.com/forum/?hl=en#!forum/drystal">https://groups.google.com/forum/?hl=en#!forum/drystal</a></p>
+<p>If you are having trouble using Drystal, please let us know.
+We have a mailing list located at: <a class="reference external" href="https://groups.google.com/forum/#!forum/drystal">https://groups.google.com/forum/#!forum/drystal</a></p>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
@@ -217,7 +221,7 @@ We have a mailing list located at: <a class="reference external" href="https://g
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v1alpha',
+            VERSION:'v1.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
