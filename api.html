@@ -1348,6 +1348,14 @@ The box is centered on x,y which means you have to add an offset of width/2,heig
 <dt id="drystal.Body:destroy">
 <tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Body:destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroys the body.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Once the body is destroy, you cannot call any of its functions anymore. Make sure to remove references (<tt class="code lua docutils literal"><span class="name"><span class="pre">my_body</span></span> <span class="operator"><span class="pre">=</span></span> <span class="keyword constant"><span class="pre">nil</span></span></tt>).</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Associated joints are destroyed too. Calling functions on those joints will throw an error, make sure to remove references (<tt class="code lua docutils literal"><span class="name"><span class="pre">my_joint</span></span> <span class="operator"><span class="pre">=</span></span> <span class="keyword constant"><span class="pre">nil</span></span></tt>).</p>
+</div>
 </dd></dl>
 
 </dd></dl>
