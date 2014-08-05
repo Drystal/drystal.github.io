@@ -209,7 +209,8 @@ You can use it to restore the state of the game.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">button can be: 1 for left click, 2 for middle click, 3 for right click, 4 and 5 for mouse wheel.</td>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">button is one of <tt class="docutils literal"><span class="pre">drystal.BUTTON_LEFT</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BUTTON_RIGHT</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BUTTON_MIDDLE</span></tt>,
+<tt class="docutils literal"><span class="pre">drystal.WHEEL_UP</span></tt> or <tt class="docutils literal"><span class="pre">drystal.WHEEL_DOWN</span></tt>.</td>
 </tr>
 </tbody>
 </table>
@@ -391,7 +392,7 @@ You also need to ensure that there is no border or margin for the canvas in your
 <dt id="drystal.new_surface">
 <tt class="descclassname">drystal.</tt><tt class="descname">new_surface</tt><big>(</big><em>width</em>, <em>height</em><big>)</big><a class="headerlink" href="#drystal.new_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new surface of dimensions (<tt class="docutils literal"><span class="pre">width</span></tt>, <tt class="docutils literal"><span class="pre">height</span></tt>).
-By default, the surface is black.</p>
+By default, the surface is transparent.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -766,8 +767,109 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 </dd></dl>
 
 </div>
+</div>
+<div class="section" id="colors">
+<h3>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="color"></span><dl class="class">
+<dt id="drystal.Color">
+<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Color</tt><a class="headerlink" href="#drystal.Color" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drystal.Color:rgb">
+<tt class="descname">rgb</tt><big>(</big><big>)</big> &rarr; r, g, b<a class="headerlink" href="#drystal.Color:rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the RGB values of the color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.Color:hsl">
+<tt class="descname">hsl</tt><big>(</big><big>)</big> &rarr; h, s, l<a class="headerlink" href="#drystal.Color:hsl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the HSL values of the color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.Color:cmyk">
+<tt class="descname">cmyk</tt><big>(</big><big>)</big> &rarr; c, m, y, k<a class="headerlink" href="#drystal.Color:cmyk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the CMYK values of the color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.Color:add">
+<tt class="descname">add</tt><big>(</big><em>color</em><big>)</big> &rarr; Color<a class="headerlink" href="#drystal.Color:add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new Color which is the combination of the two colors using the CMYK subtractive color model.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can also use the <tt class="docutils literal"><span class="pre">+</span></tt> operator.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.Color:sub">
+<tt class="descname">sub</tt><big>(</big><em>color</em><big>)</big> &rarr; Color<a class="headerlink" href="#drystal.Color:sub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new Color which is the substraction of the two colors using the CMYK subtractive color model.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can also use the <tt class="docutils literal"><span class="pre">-</span></tt> operator.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.Color:mul">
+<tt class="descname">mul</tt><big>(</big><em>color</em><big>)</big> &rarr; Color<a class="headerlink" href="#drystal.Color:mul" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new Color which is the multiplication of the two colors.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can also use the <tt class="docutils literal"><span class="pre">*</span></tt> operator.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.Color:darker">
+<tt class="descname">darker</tt><big>(</big><big>)</big> &rarr; Color<a class="headerlink" href="#drystal.Color:darker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a darker color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.Color:lighter">
+<tt class="descname">lighter</tt><big>(</big><big>)</big> &rarr; Color<a class="headerlink" href="#drystal.Color:lighter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a lighter color.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.new_color">
+<tt class="descclassname">drystal.</tt><tt class="descname">new_color</tt><big>(</big><em>table</em><big>)</big> &rarr; Color<a class="headerlink" href="#drystal.new_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a color with the RGB color model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><tt class="docutils literal"><span class="pre">table</span></tt> must contains the three components.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_color</tt><big>(</big><em>'rgb'</em>, <em>r</em>, <em>g</em>, <em>b</em><big>)</big> &rarr; Color</dt>
+<dd><p>Creates a color with the RGB color model.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_color</tt><big>(</big><em>'hsl'</em>, <em>h</em>, <em>s</em>, <em>l</em><big>)</big> &rarr; Color</dt>
+<dd><p>Creates a color with the HSL color model.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_color</tt><big>(</big><em>'cmyk'</em>, <em>c</em>, <em>m</em>, <em>y</em>, <em>k</em><big>)</big> &rarr; Color</dt>
+<dd><p>Creates a color with the CMYK color model.</p>
+</dd></dl>
+
+</div>
 <div class="section" id="sprite">
-<h4>Sprite<a class="headerlink" href="#sprite" title="Permalink to this headline">¶</a></h4>
+<h3>Sprite<a class="headerlink" href="#sprite" title="Permalink to this headline">¶</a></h3>
 <span class="target" id="id2"></span><dl class="class">
 <dt id="drystal.Sprite">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Sprite</tt><a class="headerlink" href="#drystal.Sprite" title="Permalink to this definition">¶</a></dt>
@@ -846,7 +948,6 @@ Additionnal uniforms can be declared by the <tt class="docutils literal"><span c
 </td></tr></table></div>
 </div>
 </div>
-</div>
 <div class="section" id="font-rendering">
 <h2>Font rendering<a class="headerlink" href="#font-rendering" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -869,9 +970,9 @@ A particular syntax can be used to create some text effects, for example:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><ul class="first last simple">
-<li>if alignment is 1, text is left aligned (default)</li>
-<li>if alignment is 2, text is centered around <tt class="docutils literal"><span class="pre">x</span></tt>.</li>
-<li>if alignment is 3, text is right aligned``x``.</li>
+<li>if alignment is <tt class="docutils literal"><span class="pre">drystal.ALIGN_LEFT</span></tt>, text is left aligned (default)</li>
+<li>if alignment is <tt class="docutils literal"><span class="pre">drystal.ALIGN_CENTER</span></tt>, text is centered around <tt class="docutils literal"><span class="pre">x</span></tt>.</li>
+<li>if alignment is <tt class="docutils literal"><span class="pre">drystal.ALIGN_RIGHT</span></tt>, text is right aligned <tt class="docutils literal"><span class="pre">x</span></tt>.</li>
 </ul>
 </td>
 </tr>
@@ -1075,6 +1176,19 @@ By default, attributes are initialized with random values. Make sure to call app
 </dd></dl>
 
 <dl class="function">
+<dt id="drystal.get_pixels_per_meter">
+<tt class="descclassname">drystal.</tt><tt class="descname">get_pixels_per_meter</tt><big>(</big><big>)</big> &rarr; float<a class="headerlink" href="#drystal.get_pixels_per_meter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the ratio used to convert coordinates and forces to/from Box2D.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.set_pixels_per_meter">
+<tt class="descclassname">drystal.</tt><tt class="descname">set_pixels_per_meter</tt><big>(</big><em>pixels_per_meter: float</em><big>)</big><a class="headerlink" href="#drystal.set_pixels_per_meter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the ratio used to convert coordinates and forces to/from Box2D.
+For example, if you set the ratio to <tt class="docutils literal"><span class="pre">64</span></tt>, this means a circle with a radius of 64 will have a radius of 1 meter in the Box2d world.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="drystal.on_collision">
 <tt class="descclassname">drystal.</tt><tt class="descname">on_collision</tt><big>(</big><em>on_begin</em>, <em>on_end</em>, <em>on_presolve</em>, <em>on_postsolve</em><big>)</big><a class="headerlink" href="#drystal.on_collision" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hooks some callbacks to the collision listener.</p>
@@ -1148,6 +1262,12 @@ The box is centered on x,y which means you have to add an offset of width/2,heig
 <dt>
 <tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'revolute'</em>, <em>body1</em>, <em>body2</em>, <em>anchor1x</em>, <em>anchor1y</em>, <em>anchor2x</em>, <em>anchor2y</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; RevoluteJoint</dt>
 <dd><p>Creates a revolute joint.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'gear'</em>, <em>body1</em>, <em>body2</em>, <em>joint1</em>, <em>joint2</em>, <em>ratio</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; GearJoint</dt>
+<dd><p>Creates a gear joint. <tt class="docutils literal"><span class="pre">joint1</span></tt> and <tt class="docutils literal"><span class="pre">joint2</span></tt> must be either revolute joints or a prismatic joints.</p>
 </dd></dl>
 
 <dl class="function">
