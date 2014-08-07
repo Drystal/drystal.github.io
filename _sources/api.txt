@@ -9,6 +9,10 @@
 API Reference
 =============
 
+.. contents::
+   :local:
+   :depth: 3
+
 Engine
 ------
 
@@ -150,7 +154,7 @@ Window
       assert(drystal.screen.w == 200)
       assert(drystal.screen.h == 300)
 
-.. lua:function:: set_fullscreen(fullscreen: bool)
+.. lua:function:: set_fullscreen(fullscreen: boolean)
 
    Enables or disables the fullscreen mode.
 
@@ -172,7 +176,7 @@ Window
 
    Changes the title of the window. In the browser, the title of the document is changed.
 
-.. lua:function:: show_cursor(show: bool)
+.. lua:function:: show_cursor(show: boolean)
 
    Decides if the mouse cursor should be hidden or not.
 
@@ -208,6 +212,8 @@ Surface
    .. lua:method:: set_filter(filter)
 
       :param: filter is one of ``drystal.NEAREST``, ``drystal.LINEAR``, ``drystal.BILINEAR`` or ``drystal.TRILINEAR``.
+
+   .. warning:: A surface is limited to 2048x2048 pixels. We follow the `WebGL Stats <http://webglstats.com/>`_ and we use the highest texture size at 100%.
 
 
 .. lua:function:: new_surface(width, height)
@@ -360,23 +366,23 @@ Camera
 
 The camera can be used the modify position and size of the following draws.
 
-.. lua:data:: x (=0)
+.. lua:data:: drystal.camera.x (=0)
 
    Position of the camera (x coordinate).
 
-.. lua:data:: y (=0)
+.. lua:data:: drystal.camera.y (=0)
 
    Position of the camera (y coordinate).
 
-.. lua:data:: zoom (=1)
+.. lua:data:: drystal.camera.zoom (=1)
 
    Zoom of the camera. Values greater than 1 mean zoom in, less than 1 mean zoom out.
 
-.. lua:data:: angle (=0)
+.. lua:data:: drystal.camera.angle (=0)
 
    Angle of the camera. You can easily apply a tilt effect with this field.
 
-.. lua:function:: reset()
+.. lua:function:: drystal.camera.reset()
 
    Resets the camera fields to default values.
 
@@ -527,44 +533,95 @@ Colors
 
    Creates a color with the CMYK color model.
 
+.. lua:data:: colors
+
+   This table contains all of the `W3C colors <http://www.w3.org/TR/css3-color/#svg-color>`_.
+
+.. code::
+
+   local drystal = require 'drystal'
+   local color = drystal.colors.green
+   function drystal.init()
+	  drystal.resize(600, 400)
+	  print('press d or l or m or a')
+   end
+
+   function drystal.update(dt)
+   end
+
+   function drystal.draw()
+	  drystal.set_color(color)
+	  drystal.draw_background()
+   end
+
+   function drystal.key_press(key)
+	  if key == 'd' then
+		 color = color:darker()
+	  end
+	  if key == 'l' then
+		 color = color:lighter()
+	  end
+	  if key == 'm' then
+		 color = color * drystal.colors.steelblue
+	  end
+	  if key == 'a' then
+		 color = color + drystal.colors.red
+	  end
+   end
+
 Sprite
 ^^^^^^
 
 .. _sprite:
 .. lua:class:: Sprite
 
+   .. lua:data:: source
+
+      Source table of the sprite.
+      It must contain ``x``, ``y``, ``w`` and ``h`` fields.
+
+   .. lua:data:: color (={255,255,255})
+
+      Tint of the sprite.
+
+   .. lua:data:: alpha (=255)
+
+      Alpha of the sprite.
+
+   .. lua:data:: x, y
+
+      Coordinates on the screen (or any destination surface).
+
+   .. lua:data:: w, h
+
+      Width and height of the sprite. If this is different than values from *source*, the sprite will be resized.
+
+   .. lua:data:: angle (=0)
+
+      Rotation of the sprite.
+
    .. lua:method:: draw()
 
       Draws the sprite on the current *draw on* surface.
+      You have to set the correct sprite sheet as *draw from* surface before use this function.
 
-.. lua:function:: new_sprite(table) -> Sprite
+.. lua:function:: new_sprite(source: table[, x=0, y=0[, w=source.w, h=source.h]]) -> Sprite
 
    Creates a sprite.
 
-   :param: ``table`` contains:
+   :param: ``source`` must contain the following fields:
 
-      - x, y coordinates,
-      - optional color table,
-      - optional alpha,
-      - optional angle,
-      - optional w, h (needed if source not defined),
-      - optional source (a sprite table (x, y, w, h); if not defined, draws a rectangle),
-      - any other fields you might need for your code.
+      - x, y : coordinates where the sprite is located in the *draw_from* image
+      - w, h : size of the sprite in the *draw_from* image
 
 .. code::
 
     local surface = assert(drystal.load_surface('spritesheet.png'))
-    local data = { x=0, y=0, w=32, h=32 }
-    local sprite = drystal.new_sprite {
-        x=350,
-        y=200,
-        w=sprite.w,
-        h=sprite.h,
-        source=sprite,              -- if nil, draw a rectangle
-        update=function(self, dt)   -- custom field
-            self.angle = self.angle + dt * math.pi * 2
-        end
-    })
+    local source = { x=0, y=0, w=32, h=32 }
+    local sprite = drystal.new_sprite(source, 350, 200)
+    sprite.update=function(self, dt)   -- custom field
+       self.angle = self.angle + dt * math.pi * 2
+    end
     function drystal.update(dt)
         sprite:update(dt)
     end
@@ -755,7 +812,9 @@ Physic
 
 Learning how to use Box2D_ will help to hunder Drystal's physic module.
 
-.. lua:function:: create_world(gravity_x: float, gravity_y: float)
+.. lua:function:: create_world(gravity_x: float, gravity_y: float[, pixels_per_meter])
+
+   See :ref:`set_pixels_per_meter <set_pixels_per_meter>`.
 
    .. warning:: If ``create_world`` is not called before other physic functions, errors will occur.
 
@@ -775,6 +834,7 @@ Learning how to use Box2D_ will help to hunder Drystal's physic module.
 
    Returns the ratio used to convert coordinates and forces to/from Box2D.
 
+.. _set_pixels_per_meter:
 .. lua:function:: set_pixels_per_meter(pixels_per_meter: float)
 
    Sets the ratio used to convert coordinates and forces to/from Box2D.
