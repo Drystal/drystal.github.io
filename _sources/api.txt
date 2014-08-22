@@ -417,7 +417,7 @@ A buffer can **only contain one type of shape** (point, line, triangle, textured
    Creates a buffer of the specified ``size``. ``size`` must be a multiple of the number of points of the shape you put in it.
    For example, if you put triangles, ``size`` must be a multiple of 3.
 
-.. lua:function:: use_buffer()
+.. lua:function:: use_default_buffer()
 
    Tells drystal to use the default buffer.
 
@@ -438,22 +438,22 @@ Shader
    Creates a shader with code specified.
    If one of the code is :lua:`nil`, code of the default shader is used.
 
-.. lua:function:: use_shader()
+.. lua:function:: use_default_shader()
 
    Tells drystal to use the default shader.
 
 Post processing
 """""""""""""""
 
-.. lua:function:: create_postfx(name: str, code: str[, uniforms: table]) -> function | (nil, error)
+.. lua:function:: add_postfx(name: str, code: str[, uniforms: table]) -> function | (nil, error)
 
    Creates a post processing effect.
    The ``code`` parameter must contain a *effect* function.
-   Additionnal uniforms can be declared by the ``uniforms`` parameter.
+   Additional uniforms can be declared by the ``uniforms`` parameter.
 
    .. code::
 
-      assert(drystal.create_postfx('gray', [[
+      assert(drystal.add_postfx('gray', [[
          vec3 effect(sampler2D tex, vec2 coord)
          {
              vec3 texval = texture2D(tex, coord).rgb;
@@ -807,18 +807,18 @@ Creates a new particle system.
 By default, attributes are initialized with random values. Make sure to call appropriate setters to obtain the desired particle effect.
 
 
-Physic
-------
+Physics
+-------
 
-Learning how to use Box2D_ will help to hunder Drystal's physic module.
+Learning how to use Box2D_ will help to hunder Drystal's physics module.
 
-.. lua:function:: create_world(gravity_x: float, gravity_y: float[, pixels_per_meter])
+.. lua:function:: init_physics(gravity_x: float, gravity_y: float[, pixels_per_meter])
 
    See :ref:`set_pixels_per_meter <set_pixels_per_meter>`.
 
-   .. warning:: If ``create_world`` is not called before other physic functions, errors will occur.
+   .. warning:: If ``init_physics`` is not called before other physics functions, errors will occur.
 
-.. lua:function:: update_physic(dt: float[, timestep=0.01])
+.. lua:function:: update_physics(dt: float[, timestep=0.01])
 
    Updates the world.
 
@@ -849,9 +849,19 @@ Learning how to use Box2D_ will help to hunder Drystal's physic module.
    - :lua:`on_presolve(body1, body2, x, y, normalx, normaly) -> boolean`
    - :lua:`on_postsolve(body1, body2)`
 
+.. lua:function:: raycast(x1, y1, x2, y2, 'any' | 'closest' | 'farthest') -> body, x, y
+
+   Returns any body, the closest or the farthest found during a raycast from ``(x1, y1)`` to ``(x2, y2)``.
+   It also returns the point of collision.
+
+.. lua:function:: raycast(x1, y1, x2, y2, 'all') -> bodies, points
+
+   Returns all the bodies found during a raycast from ``(x1, y1)`` to ``(x2, y2)``.
+   It also returns the points of collision.
+
 .. lua:function:: raycast(x1, y1, x2, y2, callback) -> body, x, y
 
-   :lua:`callback(body, fraction) -> float, boolean`
+   :lua:`callback(body, fraction, x, y) -> float, boolean`
    The callback should returns a float and a boolean.
    The float works like described `here <http://www.iforce2d.net/b2dtut/world-querying>`_.
    If the boolean is `false` then the body and position is not kept for the returned values of `raycast`, which means you can select which values you want to return.
@@ -1117,9 +1127,9 @@ Audio
 
 .. lua:class:: Music
 
-   .. lua:method:: play()
+   .. lua:method:: play([loop=false: bool])
 
-      Play the music (from the beginning).
+      Play the music (from the beginning). If ``loop`` is true, the music will loop forever.
 
    .. lua:method:: stop()
 
