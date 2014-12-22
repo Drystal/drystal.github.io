@@ -256,10 +256,6 @@ Drawing primitives
 
    Sets the current line width used by :ref:`draw_line <draw_line>`.
 
-.. lua:function:: set_point_size(size float)
-
-   Sets the current point size used by :ref:`draw_point <draw_point>`.
-
 .. lua:function:: draw_background()
 
    Clears the current `draw_on` surface.
@@ -267,11 +263,14 @@ Drawing primitives
 .. note:: In the following function, ``x``, ``y``, ``w`` (width) and ``h`` (height) are floats. Angle are expressed in radians. ``x`` and ``y`` are screen coordinates.
 
 .. _draw_point:
-.. lua:function:: draw_point(x, y)
+.. lua:function:: draw_point(x, y, size)
 
-   Draws a point at the given coordinate.
+   Draws a point at the given coordinate and with given size.
 
-.. .. lua:function:: draw_point_tex()
+.. .. lua:function:: draw_point_tex(x, y, size)
+
+   Draws a textured point at the given coordinate and with given size.
+   The point will be textured with the entire surface bound to `current draw from`.
 
 .. _draw_line:
 .. lua:function:: draw_line(x1, y1, x2, y2)
@@ -801,10 +800,11 @@ Particle System
 ..    .. lua:method:: set_max_initial_velocity(max: float)
 ..    .. lua:method:: get_max_initial_velocity() -> float
 
-.. lua:function:: new_system() -> System
+.. lua:function:: new_system(x, y) -> System
 
-Creates a new particle system.
-By default, attributes are initialized with random values. Make sure to call appropriate setters to obtain the desired particle effect.
+Creates a new particle system at given position.
+
+.. warning:: By default, attributes are initialized with random values. Make sure to call appropriate setters to obtain the desired particle effect.
 
 
 Physics
@@ -1016,13 +1016,13 @@ Learning how to use Box2D_ will help to hunder Drystal's physics module.
 
       Sets the mass center.
 
-   .. lua:method:: apply_force(x, y)
+   .. lua:method:: apply_force(x, y[, x, y])
 
-      Applies a force.
+      Applies a force (by default, x, y are the body's center).
 
    .. lua:method:: apply_linear_impulse(x, y)
 
-      Applies a linear impulse.
+      Applies a linear impulse (by default, x, y are the body's center).
 
    .. lua:method:: apply_angular_impulse(angle)
 
@@ -1127,9 +1127,22 @@ Audio
 
 .. lua:class:: Music
 
-   .. lua:method:: play([loop=false: bool])
+   .. lua:method:: play([loop=false: bool[, onend_callback: function]])
 
-      Play the music (from the beginning). If ``loop`` is true, the music will loop forever.
+      Plays the music (from the beginning). If ``loop`` is true, the music will loop forever.
+      ``onend_callback`` is called when the music finishes (and is not called by :stop()).
+
+   .. lua:method:: set_pitch(pitch: float)
+
+      Sets the pitch of the music. ``pitch`` must be >= 0.
+
+   .. lua:method:: set_volume(volume: float)
+
+      Sets the volume of the music. ``volume`` must be >= 0.
+
+   .. lua:method:: pause()
+
+      Pauses the music.
 
    .. lua:method:: stop()
 
@@ -1146,13 +1159,14 @@ Audio
 
 .. lua:class:: Sound
 
-   .. lua:method:: play([volume=1[, x=0[, y=0]]])
+   .. lua:method:: play([volume=1[, x=0[, y=0[, pitch=1]]])
 
-      Plays the sound at given volume and position.
+      Plays the sound at given volume, position and pitch.
 
       :param: volume float between 0 and 1
       :param: x float between -1 and 1 (-1 is full left, 1 is full right)
       :param: y float between -1 and 1
+      :param: pitch float greater than or equal to 0
 
 .. lua:function:: load_sound(filename: str) -> Sound | (nil, error)
 
