@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; Drystal v1.0 documentation</title>
+  <title>API Reference &mdash; Drystal v1.1 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="Drystal v1.0 documentation" href="index.html"/>
+    <link rel="top" title="Drystal v1.1 documentation" href="index.html"/>
         <link rel="next" title="Resources" href="resources.html"/>
         <link rel="prev" title="Welcome to Drystal’s website!" href="index.html"/> 
 
@@ -68,6 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#audio">Audio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#storage">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#web">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timer">Timer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a></li>
 </ul>
 </li>
@@ -113,47 +114,48 @@
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#engine" id="id3">Engine</a><ul>
-<li><a class="reference internal" href="#callbacks" id="id4">Callbacks</a></li>
+<li><a class="reference internal" href="#engine" id="id2">Engine</a><ul>
+<li><a class="reference internal" href="#callbacks" id="id3">Callbacks</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#event" id="id5">Event</a><ul>
-<li><a class="reference internal" href="#id1" id="id6">Callbacks</a></li>
+<li><a class="reference internal" href="#event" id="id4">Event</a><ul>
+<li><a class="reference internal" href="#id1" id="id5">Callbacks</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#graphics" id="id7">Graphics</a><ul>
-<li><a class="reference internal" href="#window" id="id8">Window</a></li>
-<li><a class="reference internal" href="#surface" id="id9">Surface</a></li>
-<li><a class="reference internal" href="#drawing-primitives" id="id10">Drawing primitives</a></li>
-<li><a class="reference internal" href="#blending" id="id11">Blending</a></li>
-<li><a class="reference internal" href="#camera" id="id12">Camera</a></li>
-<li><a class="reference internal" href="#buffer" id="id13">Buffer</a></li>
-<li><a class="reference internal" href="#shader" id="id14">Shader</a><ul>
-<li><a class="reference internal" href="#post-processing" id="id15">Post processing</a></li>
+<li><a class="reference internal" href="#graphics" id="id6">Graphics</a><ul>
+<li><a class="reference internal" href="#window" id="id7">Window</a></li>
+<li><a class="reference internal" href="#surface" id="id8">Surface</a></li>
+<li><a class="reference internal" href="#drawing-primitives" id="id9">Drawing primitives</a></li>
+<li><a class="reference internal" href="#blending" id="id10">Blending</a></li>
+<li><a class="reference internal" href="#camera" id="id11">Camera</a></li>
+<li><a class="reference internal" href="#buffer" id="id12">Buffer</a></li>
+<li><a class="reference internal" href="#shader" id="id13">Shader</a><ul>
+<li><a class="reference internal" href="#post-processing" id="id14">Post processing</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#colors" id="id16">Colors</a></li>
-<li><a class="reference internal" href="#sprite" id="id17">Sprite</a></li>
+<li><a class="reference internal" href="#colors" id="id15">Colors</a></li>
+<li><a class="reference internal" href="#sprite" id="id16">Sprite</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#font-rendering" id="id18">Font rendering</a></li>
-<li><a class="reference internal" href="#particle-system" id="id19">Particle System</a></li>
-<li><a class="reference internal" href="#physics" id="id20">Physics</a></li>
-<li><a class="reference internal" href="#audio" id="id21">Audio</a></li>
-<li><a class="reference internal" href="#storage" id="id22">Storage</a></li>
-<li><a class="reference internal" href="#web" id="id23">Web</a></li>
+<li><a class="reference internal" href="#font-rendering" id="id17">Font rendering</a></li>
+<li><a class="reference internal" href="#particle-system" id="id18">Particle System</a></li>
+<li><a class="reference internal" href="#physics" id="id19">Physics</a></li>
+<li><a class="reference internal" href="#audio" id="id20">Audio</a></li>
+<li><a class="reference internal" href="#storage" id="id21">Storage</a></li>
+<li><a class="reference internal" href="#web" id="id22">Web</a></li>
+<li><a class="reference internal" href="#timer" id="id23">Timer</a></li>
 <li><a class="reference internal" href="#utils" id="id24">Utils</a></li>
 </ul>
 </div>
 <div class="section" id="engine">
-<h2><a class="toc-backref" href="#id3">Engine</a><a class="headerlink" href="#engine" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="drystal-stop"></span><dl class="function">
+<h2><a class="toc-backref" href="#id2">Engine</a><a class="headerlink" href="#engine" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
 <dt id="drystal.stop">
 <tt class="descclassname">drystal.</tt><tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops the execution of drystal.</p>
 </dd></dl>
 
-<span class="target" id="drystal-reload"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.reload">
 <tt class="descclassname">drystal.</tt><tt class="descname">reload</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.reload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reloads the current game. This can be useful during the development on your desktop.</p>
@@ -164,7 +166,7 @@
 </dd></dl>
 
 <div class="section" id="callbacks">
-<h3><a class="toc-backref" href="#id4">Callbacks</a><a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Callbacks</a><a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="drystal.init">
 <tt class="descclassname">drystal.</tt><tt class="descname">init</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.init" title="Permalink to this definition">¶</a></dt>
@@ -193,19 +195,19 @@ Use this function to update the game state.</p>
 <dl class="function">
 <dt id="drystal.draw">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.draw" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is called after the <tt class="docutils literal"><span class="pre">update</span></tt> function.</p>
+<dd><p>This function is called after the <a class="reference internal" href="#drystal.update" title="drystal.update"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.update()</span></tt></a> function.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.atexit">
 <tt class="descclassname">drystal.</tt><tt class="descname">atexit</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.atexit" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is called when the window is closed or when <a class="reference internal" href="#drystal-stop"><em>drystal.stop</em></a> is called.</p>
+<dd><p>This function is called when the window is closed or when <a class="reference internal" href="#drystal.stop" title="drystal.stop"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.stop()</span></tt></a> is called.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.prereload">
 <tt class="descclassname">drystal.</tt><tt class="descname">prereload</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.prereload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called before the game is reloaded (by <a class="reference internal" href="#drystal-reload"><em>reload</em></a>, by pressing F3 or with livereloading).
+<dd><p>Called before the game is reloaded (by <a class="reference internal" href="#drystal.reload" title="drystal.reload"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.reload()</span></tt></a>, by pressing F3 or with livereloading).
 You can use it to save the current state of the game inside a global variable, so it will still be accessible after the reload.</p>
 </dd></dl>
 
@@ -219,15 +221,19 @@ You can use it to restore the state of the game.</p>
 </div>
 </div>
 <div class="section" id="event">
-<h2><a class="toc-backref" href="#id5">Event</a><a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Event</a><a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>The event module allows you to know when the mouse is moved, a key or a button is pressed or released, or
+when the screen is resized.</div></blockquote>
 <dl class="function">
 <dt id="drystal.set_relative_mode">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_relative_mode</tt><big>(</big><em>relative: boolean</em><big>)</big><a class="headerlink" href="#drystal.set_relative_mode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Relative mode is when the mouse is hidden and can&#8217;t leave the window/canvas.</p>
+<dd><p>Sets the relative mode.</p>
+<p>Relative mode is when the mouse is hidden and can&#8217;t leave the window/canvas.</p>
 </dd></dl>
 
 <div class="section" id="id1">
-<h3><a class="toc-backref" href="#id6">Callbacks</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Callbacks</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>To receive events, you have to defined some of the following functions.</p>
 <dl class="function">
 <dt id="drystal.mouse_motion">
@@ -235,7 +241,7 @@ You can use it to restore the state of the game.</p>
 <dd><p>Called when the mouse is moved. <tt class="docutils literal"><span class="pre">dx</span></tt> and <tt class="docutils literal"><span class="pre">dy</span></tt> are difference betweend the current position and the last one.</p>
 </dd></dl>
 
-<span class="target" id="mouse-press"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.mouse_press">
 <tt class="descclassname">drystal.</tt><tt class="descname">mouse_press</tt><big>(</big><em>x</em>, <em>y</em>, <em>button: int</em><big>)</big><a class="headerlink" href="#drystal.mouse_press" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when a button (or mouse wheel) is pressed.</p>
@@ -243,8 +249,13 @@ You can use it to restore the state of the game.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">button is one of <tt class="docutils literal"><span class="pre">drystal.BUTTON_LEFT</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BUTTON_RIGHT</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BUTTON_MIDDLE</span></tt>,
-<tt class="docutils literal"><span class="pre">drystal.WHEEL_UP</span></tt> or <tt class="docutils literal"><span class="pre">drystal.WHEEL_DOWN</span></tt>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) &#8211; X coordinate of the mouse when the button was pressed</li>
+<li><strong>y</strong> (<em>int</em>) &#8211; Y coordinate of the mouse when the button was pressed</li>
+<li><strong>button</strong> (<em>int</em>) &#8211; is one of <tt class="docutils literal"><span class="pre">drystal.BUTTON_LEFT</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BUTTON_RIGHT</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BUTTON_MIDDLE</span></tt>,
+<tt class="docutils literal"><span class="pre">drystal.WHEEL_UP</span></tt> or <tt class="docutils literal"><span class="pre">drystal.WHEEL_DOWN</span></tt>.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -258,54 +269,70 @@ You can use it to restore the state of the game.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">button is the same as in <a class="reference internal" href="#mouse-press"><em>mouse_press</em></a>.</td>
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">button is the same as in <a class="reference internal" href="#drystal.mouse_press" title="drystal.mouse_press"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.mouse_press()</span></tt></a>.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<span class="target" id="key-press"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.key_press">
 <tt class="descclassname">drystal.</tt><tt class="descname">key_press</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#drystal.key_press" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when a key is pressed.
-Depending on key repeat system configuration of the player, <tt class="docutils literal"><span class="pre">key_press</span></tt> can be called multiple times even if the user did not released the key. <tt class="docutils literal"><span class="pre">key_release</span></tt> will be called too.</p>
+Depending on key repeat system configuration of the player, <a class="reference internal" href="#drystal.key_press" title="drystal.key_press"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.key_press()</span></tt></a> can be called multiple
+times even if the user did not released the key. <a class="reference internal" href="#drystal.key_release" title="drystal.key_release"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.key_release()</span></tt></a> will be called too.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.key_release">
 <tt class="descclassname">drystal.</tt><tt class="descname">key_release</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#drystal.key_release" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as <a class="reference internal" href="#key-press"><em>key_press</em></a> but when a key is released.</p>
+<dd><p>Same as <a class="reference internal" href="#drystal.key_press" title="drystal.key_press"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.key_press()</span></tt></a> but when a key is released.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.key_text">
 <tt class="descclassname">drystal.</tt><tt class="descname">key_text</tt><big>(</big><em>unicode_key</em><big>)</big><a class="headerlink" href="#drystal.key_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when a key is pressed, <tt class="docutils literal"><span class="pre">unicode_key</span></tt> is the character generated by the key and the current modifiers.
-For example, if <em>shift</em> and <em>d</em> are pressed, <tt class="docutils literal"><span class="pre">key_text</span></tt> will be called with the parameter <strong>&#8216;D&#8217;</strong>.</p>
+For example, if <em>shift</em> and <em>d</em> are pressed, <a class="reference internal" href="#drystal.key_text" title="drystal.key_text"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.key_text()</span></tt></a> will be called with the parameter <strong>&#8216;D&#8217;</strong>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.page_resize">
+<tt class="descclassname">drystal.</tt><tt class="descname">page_resize</tt><big>(</big><em>w</em>, <em>h</em><big>)</big><a class="headerlink" href="#drystal.page_resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the browser page is resized. Use this callback to resize the canvas in the fullscreen mode (see <a class="reference internal" href="#drystal.set_fullscreen" title="drystal.set_fullscreen"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.set_fullscreen()</span></tt></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">see <a class="reference external" href="http://www.w3schools.com/jsref/prop_win_innerheight.asp">inner window width and height</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
 </div>
 <div class="section" id="graphics">
-<h2><a class="toc-backref" href="#id7">Graphics</a><a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Graphics</a><a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="window">
-<h3><a class="toc-backref" href="#id8">Window</a><a class="headerlink" href="#window" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Window</a><a class="headerlink" href="#window" title="Permalink to this headline">¶</a></h3>
 <dl class="data">
 <dt id="drystal.screen">
 <tt class="descclassname">drystal.</tt><tt class="descname">screen</tt><a class="headerlink" href="#drystal.screen" title="Permalink to this definition">¶</a></dt>
-<dd><p><cite>screen</cite> is the surface representing the window/canvas, which will be blit after execution of the <cite>drystal.draw</cite> callback.</p>
+<dd><p><a class="reference internal" href="#drystal.screen" title="drystal.screen"><tt class="xref lua lua-data docutils literal"><span class="pre">drystal.screen</span></tt></a> is the surface representing the window/canvas, which will be blit after execution of the
+<a class="reference internal" href="#drystal.draw" title="drystal.draw"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw()</span></tt></a> callback.</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="drystal.current_draw_on">
 <tt class="descclassname">drystal.</tt><tt class="descname">current_draw_on</tt><a class="headerlink" href="#drystal.current_draw_on" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="#surface-draw-on"><em>Surface:draw_on()</em></a></p>
+<dd><p><a class="reference internal" href="#drystal.Surface:draw_on" title="drystal.Surface:draw_on"><tt class="xref lua lua-meth docutils literal"><span class="pre">Surface:draw_on()</span></tt></a></p>
 </dd></dl>
 
 <dl class="data">
 <dt id="drystal.current_draw_from">
 <tt class="descclassname">drystal.</tt><tt class="descname">current_draw_from</tt><a class="headerlink" href="#drystal.current_draw_from" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="#surface-draw-from"><em>Surface:draw_from()</em></a></p>
+<dd><p><a class="reference internal" href="#drystal.Surface:draw_from" title="drystal.Surface:draw_from"><tt class="xref lua lua-meth docutils literal"><span class="pre">Surface:draw_from()</span></tt></a></p>
 </dd></dl>
 
 <dl class="function">
@@ -332,7 +359,7 @@ For example, if <em>shift</em> and <em>d</em> are pressed, <tt class="docutils l
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">It will make the game fits the whole page in a browser and not use
-the fullscreen mode. We choose this behavior because the echap key will not
+the true fullscreen mode. We choose this behavior because the escape key will not
 be available anymore and it makes less sense to play a game in fullscreen with a browser.
 You also need to ensure that there is no border or margin for the canvas in your index.html.</p>
 </div>
@@ -344,6 +371,10 @@ You also need to ensure that there is no border or margin for the canvas in your
     <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When the browser is resized, the canvas is not resized. Call <tt class="docutils literal"><span class="pre">drystal.set_fullscreen(true)</span></tt> from the callback <a class="reference internal" href="#drystal.page_resize" title="drystal.page_resize"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.page_resize()</span></tt></a> to update it.</p>
 </div>
 </dd></dl>
 
@@ -361,7 +392,7 @@ You also need to ensure that there is no border or margin for the canvas in your
 
 </div>
 <div class="section" id="surface">
-<h3><a class="toc-backref" href="#id9">Surface</a><a class="headerlink" href="#surface" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Surface</a><a class="headerlink" href="#surface" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="drystal.Surface">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Surface</tt><a class="headerlink" href="#drystal.Surface" title="Permalink to this definition">¶</a></dt>
@@ -379,7 +410,7 @@ You also need to ensure that there is no border or margin for the canvas in your
 <dd><p>Height of the surface.</p>
 </dd></dl>
 
-<span class="target" id="surface-draw-on"></span><dl class="method">
+<dl class="method">
 <dt id="drystal.Surface:draw_on">
 <tt class="descname">draw_on</tt><big>(</big><big>)</big> &rarr; Surface<a class="headerlink" href="#drystal.Surface:draw_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use this surface as destinatin/backbuffer (draw method be redirected to this surface instead of screen) for futur draws.</p>
@@ -393,10 +424,10 @@ You also need to ensure that there is no border or margin for the canvas in your
 </table>
 </dd></dl>
 
-<span class="target" id="surface-draw-from"></span><dl class="method">
+<dl class="method">
 <dt id="drystal.Surface:draw_from">
 <tt class="descname">draw_from</tt><big>(</big><big>)</big> &rarr; Surface<a class="headerlink" href="#drystal.Surface:draw_from" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use this surface as source for futur textured draws (like <tt class="docutils literal"><span class="pre">drystal.draw_sprite</span></tt>).</p>
+<dd><p>Use this surface as source for future textured draws (like <a class="reference internal" href="#drystal.draw_sprite" title="drystal.draw_sprite"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_sprite()</span></tt></a>).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -414,7 +445,10 @@ You also need to ensure that there is no border or margin for the canvas in your
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">filter is one of <tt class="docutils literal"><span class="pre">drystal.NEAREST</span></tt>, <tt class="docutils literal"><span class="pre">drystal.LINEAR</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BILINEAR</span></tt> or <tt class="docutils literal"><span class="pre">drystal.TRILINEAR</span></tt>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filter</strong> (<em>int</em>) &#8211; is one of <tt class="docutils literal"><span class="pre">drystal.NEAREST</span></tt>, <tt class="docutils literal"><span class="pre">drystal.LINEAR</span></tt>, <tt class="docutils literal"><span class="pre">drystal.BILINEAR</span></tt> or <tt class="docutils literal"><span class="pre">drystal.TRILINEAR</span></tt>.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -450,7 +484,7 @@ By default, the surface is transparent.</p>
 <dt id="drystal.load_surface">
 <tt class="descclassname">drystal.</tt><tt class="descname">load_surface</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#drystal.load_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a surface from a file.
-If the file does not exist or is invalid, <tt class="docutils literal"><span class="pre">load_surface</span></tt> returns (<cite>nil</cite>, error).</p>
+If the file does not exist or is invalid, <a class="reference internal" href="#drystal.load_surface" title="drystal.load_surface"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.load_surface()</span></tt></a> returns (<cite>nil</cite>, error).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Use <tt class="code lua docutils literal"><span class="name builtin"><span class="pre">assert</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">drystal</span></span><span class="punctuation"><span class="pre">.</span></span><span class="name"><span class="pre">load_surface</span></span> <span class="literal string single"><span class="pre">'</span></span><span class="literal string"><span class="pre">test.png'</span></span><span class="punctuation"><span class="pre">)</span></span></tt> to make sure the surface is loaded.</p>
@@ -459,14 +493,14 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 
 </div>
 <div class="section" id="drawing-primitives">
-<h3><a class="toc-backref" href="#id10">Drawing primitives</a><a class="headerlink" href="#drawing-primitives" title="Permalink to this headline">¶</a></h3>
-<span class="target" id="set-color"></span><dl class="function">
+<h3><a class="toc-backref" href="#id9">Drawing primitives</a><a class="headerlink" href="#drawing-primitives" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
 <dt id="drystal.set_color">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_color</tt><big>(</big><em>red: float [0-255], green: float [0-255], blue: float [0-255]</em><big>)</big><a class="headerlink" href="#drystal.set_color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets current color used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions.</p>
 </dd></dl>
 
-<span class="target" id="set-alpha"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.set_alpha">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_alpha</tt><big>(</big><em>alpha: float [0-255]</em><big>)</big><a class="headerlink" href="#drystal.set_alpha" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the current alpha used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions.</p>
@@ -475,26 +509,26 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 <dl class="function">
 <dt id="drystal.set_line_width">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_line_width</tt><big>(</big><em>width: float</em><big>)</big><a class="headerlink" href="#drystal.set_line_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the current line width used by <a class="reference internal" href="#draw-line"><em>draw_line</em></a>.</p>
+<dd><p>Sets the current line width used by <a class="reference internal" href="#drystal.draw_line" title="drystal.draw_line"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_line()</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_background">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_background</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.draw_background" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears the current <cite>draw_on</cite> surface.</p>
+<dd><p>Clears the current <a class="reference internal" href="#drystal.current_draw_on" title="drystal.current_draw_on"><tt class="xref lua lua-data docutils literal"><span class="pre">current_draw_on</span></tt></a> surface.</p>
 </dd></dl>
 
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In the following function, <tt class="docutils literal"><span class="pre">x</span></tt>, <tt class="docutils literal"><span class="pre">y</span></tt>, <tt class="docutils literal"><span class="pre">w</span></tt> (width) and <tt class="docutils literal"><span class="pre">h</span></tt> (height) are floats. Angle are expressed in radians. <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> are screen coordinates.</p>
 </div>
-<span class="target" id="draw-point"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.draw_point">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_point</tt><big>(</big><em>x</em>, <em>y</em>, <em>size</em><big>)</big><a class="headerlink" href="#drystal.draw_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a point at the given coordinate and with given size.</p>
 </dd></dl>
 
-<span class="target" id="draw-line"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.draw_line">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_line</tt><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em><big>)</big><a class="headerlink" href="#drystal.draw_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a line between the two given points.</p>
@@ -506,17 +540,18 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 <dd><p>Draws a filled triangle between the three given points.</p>
 </dd></dl>
 
-<span class="target" id="draw-surface"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.draw_surface">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_surface</tt><big>(</big><em>ix1</em>, <em>iy1</em>, <em>ix2</em>, <em>iy2</em>, <em>ix3</em>, <em>iy3</em>, <em>ox1</em>, <em>oy1</em>, <em>ox2</em>, <em>oy2</em>, <em>ox3</em>, <em>oy3</em><big>)</big><a class="headerlink" href="#drystal.draw_surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draws a surface (set as <cite>current draw from</cite>). The first 6 parameters represent a triangle in the source texture, the last 6 represent the destination triangle. They can have different sizes to create deformations.</p>
-<p>Tinting is possible by using <a class="reference internal" href="#set-color"><em>set_color</em></a> (255, 255, 255 for no modification).</p>
+<dd><p>Draws a surface (set as <a class="reference internal" href="#drystal.current_draw_from" title="drystal.current_draw_from"><tt class="xref lua lua-data docutils literal"><span class="pre">current_draw_from</span></tt></a>). The first 6 parameters represent a triangle in the source texture,
+the last 6 represent the destination triangle. They can have different sizes to create deformations.</p>
+<p>Tinting is possible by using <a class="reference internal" href="#drystal.set_color" title="drystal.set_color"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.set_color()</span></tt></a> (255, 255, 255 for no modification).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="drystal.draw_quad">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_quad</tt><big>(</big><em>ix1</em>, <em>iy1</em>, <em>ix2</em>, <em>iy2</em>, <em>ix3</em>, <em>iy3</em>, <em>ix4</em>, <em>iy4</em>, <em>ox1</em>, <em>oy1</em>, <em>ox2</em>, <em>oy2</em>, <em>ox3</em>, <em>oy3</em>, <em>ox4</em>, <em>oy4</em><big>)</big><a class="headerlink" href="#drystal.draw_quad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as <a class="reference internal" href="#draw-surface"><em>draw_surface</em></a> but with quadrilaterals instead of triangles.</p>
+<dd><p>Same as <a class="reference internal" href="#drystal.draw_surface" title="drystal.draw_surface"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_surface()</span></tt></a> but with quadrilaterals instead of triangles.</p>
 </dd></dl>
 
 <dl class="function">
@@ -544,7 +579,7 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This function draws a lot of triangles. If possible, include a circle in your spritesheet and draw it with <a class="reference internal" href="#draw-sprite"><em>draw_sprite</em></a>.</p>
+<p class="last">This function draws a lot of triangles. If possible, include a circle in your spritesheet and draw it with <a class="reference internal" href="#drystal.draw_sprite" title="drystal.draw_sprite"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_sprite()</span></tt></a>.</p>
 </div>
 </div></blockquote>
 </dd></dl>
@@ -567,18 +602,20 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 <dd><p>Draws an image. It can be resized if <tt class="docutils literal"><span class="pre">destw</span></tt> or <tt class="docutils literal"><span class="pre">desth</span></tt> are different than <tt class="docutils literal"><span class="pre">w</span></tt> and <tt class="docutils literal"><span class="pre">h</span></tt></p>
 </dd></dl>
 
-<span class="target" id="draw-sprite"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.draw_sprite">
 <tt class="descclassname">drystal.</tt><tt class="descname">draw_sprite</tt><big>(</big><em>sprite: table</em>, <em>x</em>, <em>y</em><span class="optional">[</span>, <em>transform: table</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.draw_sprite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draws a sprite, from the current <a class="reference internal" href="#surface-draw-from"><em>draw from</em></a> surface.</p>
-<p>Use <a class="reference internal" href="#id2"><em>Sprite</em></a> for easier sprite drawing.</p>
+<dd><p>Draws a sprite, from the current <a class="reference internal" href="#drystal.Surface:draw_from" title="drystal.Surface:draw_from"><tt class="xref lua lua-meth docutils literal"><span class="pre">Surface:draw_from()</span></tt></a> surface.</p>
+<p>Use <a class="reference internal" href="#drystal.Sprite" title="drystal.Sprite"><tt class="xref lua lua-class docutils literal"><span class="pre">Sprite</span></tt></a> for easier sprite drawing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">sprite must have fields x, y, w and h</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Param:</th><td class="field-body">transform must have fields angle, wfactor and hfactor</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sprite</strong> (<em>table</em>) &#8211; must have the fields: x, y, w and h</li>
+<li><strong>transform</strong> (<em>table</em>) &#8211; must have the fields: angle, wfactor and hfactor</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -622,7 +659,7 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 
 </div>
 <div class="section" id="blending">
-<h3><a class="toc-backref" href="#id11">Blending</a><a class="headerlink" href="#blending" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Blending</a><a class="headerlink" href="#blending" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">Images to show the differences</p>
@@ -649,7 +686,7 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 
 </div>
 <div class="section" id="camera">
-<h3><a class="toc-backref" href="#id12">Camera</a><a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Camera</a><a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h3>
 <p>The camera can be used the modify position and size of the following draws.</p>
 <dl class="data">
 <dt id="drystal.drystal.camera.x">
@@ -683,8 +720,8 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 
 </div>
 <div class="section" id="buffer">
-<h3><a class="toc-backref" href="#id13">Buffer</a><a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h3>
-<p>A buffer can <strong>only contain one type of shape</strong> (point, line, triangle, textured triangle).</p>
+<h3><a class="toc-backref" href="#id12">Buffer</a><a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h3>
+<p>A buffer can <strong>only contain one type of shape</strong> (point, textured point, line, triangle, textured triangle).</p>
 <dl class="class">
 <dt id="drystal.Buffer">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Buffer</tt><a class="headerlink" href="#drystal.Buffer" title="Permalink to this definition">¶</a></dt>
@@ -710,7 +747,8 @@ If the file does not exist or is invalid, <tt class="docutils literal"><span cla
 <dt id="drystal.Buffer:upload_and_free">
 <tt class="descname">upload_and_free</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.Buffer:upload_and_free" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sends the buffer to the graphic card and free memory.
-If a buffer is freed, you cannot call <tt class="docutils literal"><span class="pre">reset</span></tt>, <tt class="docutils literal"><span class="pre">use</span></tt> or <tt class="docutils literal"><span class="pre">upload_and_free</span></tt> anymore or errors will be thrown.</p>
+If a buffer is freed, you cannot call <a class="reference internal" href="#drystal.Buffer:reset" title="drystal.Buffer:reset"><tt class="xref lua lua-meth docutils literal"><span class="pre">Buffer:reset()</span></tt></a>, <a class="reference internal" href="#drystal.Buffer:use" title="drystal.Buffer:use"><tt class="xref lua lua-meth docutils literal"><span class="pre">Buffer:use()</span></tt></a> or
+<tt class="xref lua lua-func docutils literal"><span class="pre">Buffer.upload_and_free()</span></tt> anymore or errors will be thrown.</p>
 </dd></dl>
 
 </dd></dl>
@@ -730,7 +768,7 @@ For example, if you put triangles, <tt class="docutils literal"><span class="pre
 
 </div>
 <div class="section" id="shader">
-<h3><a class="toc-backref" href="#id14">Shader</a><a class="headerlink" href="#shader" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Shader</a><a class="headerlink" href="#shader" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="drystal.Shader">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Shader</tt><a class="headerlink" href="#drystal.Shader" title="Permalink to this definition">¶</a></dt>
@@ -761,7 +799,7 @@ If one of the code is <tt class="code lua docutils literal"><span class="keyword
 </dd></dl>
 
 <div class="section" id="post-processing">
-<h4><a class="toc-backref" href="#id15">Post processing</a><a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id14">Post processing</a><a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h4>
 <dl class="function">
 <dt id="drystal.add_postfx">
 <tt class="descclassname">drystal.</tt><tt class="descname">add_postfx</tt><big>(</big><em>name: str, code: str[, uniforms: table]) -&gt; function | (nil, error</em><big>)</big><a class="headerlink" href="#drystal.add_postfx" title="Permalink to this definition">¶</a></dt>
@@ -801,8 +839,8 @@ Additional uniforms can be declared by the <tt class="docutils literal"><span cl
 </div>
 </div>
 <div class="section" id="colors">
-<h3><a class="toc-backref" href="#id16">Colors</a><a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h3>
-<span class="target" id="color"></span><dl class="class">
+<h3><a class="toc-backref" href="#id15">Colors</a><a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="drystal.Color">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Color</tt><a class="headerlink" href="#drystal.Color" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
@@ -875,7 +913,10 @@ Additional uniforms can be declared by the <tt class="docutils literal"><span cl
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><tt class="docutils literal"><span class="pre">table</span></tt> must contains the three components.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table</strong> (<em>table</em>) &#8211; must contains the three components: r, g and b.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -966,8 +1007,8 @@ Additional uniforms can be declared by the <tt class="docutils literal"><span cl
 </td></tr></table></div>
 </div>
 <div class="section" id="sprite">
-<h3><a class="toc-backref" href="#id17">Sprite</a><a class="headerlink" href="#sprite" title="Permalink to this headline">¶</a></h3>
-<span class="target" id="id2"></span><dl class="class">
+<h3><a class="toc-backref" href="#id16">Sprite</a><a class="headerlink" href="#sprite" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="drystal.Sprite">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Sprite</tt><a class="headerlink" href="#drystal.Sprite" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="data">
@@ -1024,10 +1065,13 @@ You have to set the correct sprite sheet as <em>draw from</em> surface before us
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">source</span></tt> must contain the following fields:</p>
-<ul class="last simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>source</strong> (<em>table</em>) &#8211; <p>must contain the following fields:</p>
+<ul>
 <li>x, y : coordinates where the sprite is located in the <em>draw_from</em> image</li>
 <li>w, h : size of the sprite in the <em>draw_from</em> image</li>
+</ul>
+</li>
 </ul>
 </td>
 </tr>
@@ -1067,11 +1111,11 @@ You have to set the correct sprite sheet as <em>draw from</em> surface before us
 </div>
 </div>
 <div class="section" id="font-rendering">
-<h2><a class="toc-backref" href="#id18">Font rendering</a><a class="headerlink" href="#font-rendering" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Font rendering</a><a class="headerlink" href="#font-rendering" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="drystal.Font">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Font</tt><a class="headerlink" href="#drystal.Font" title="Permalink to this definition">¶</a></dt>
-<dd><span class="target" id="font-draw"></span><dl class="method">
+<dd><dl class="method">
 <dt id="drystal.Font:draw">
 <tt class="descname">draw</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em><span class="optional">[</span>, <em>alignment=1: int</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.Font:draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws <tt class="docutils literal"><span class="pre">text</span></tt> at the given coordinates.
@@ -1087,10 +1131,13 @@ A particular syntax can be used to create some text effects, for example:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>alignement</strong> (<em>int</em>) &#8211; <ul>
 <li>if alignment is <tt class="docutils literal"><span class="pre">drystal.ALIGN_LEFT</span></tt>, text is left aligned (default)</li>
 <li>if alignment is <tt class="docutils literal"><span class="pre">drystal.ALIGN_CENTER</span></tt>, text is centered around <tt class="docutils literal"><span class="pre">x</span></tt>.</li>
 <li>if alignment is <tt class="docutils literal"><span class="pre">drystal.ALIGN_RIGHT</span></tt>, text is right aligned <tt class="docutils literal"><span class="pre">x</span></tt>.</li>
+</ul>
+</li>
 </ul>
 </td>
 </tr>
@@ -1098,10 +1145,10 @@ A particular syntax can be used to create some text effects, for example:</p>
 </table>
 </dd></dl>
 
-<span class="target" id="font-draw-plain"></span><dl class="method">
+<dl class="method">
 <dt id="drystal.Font:draw_plain">
 <tt class="descname">draw_plain</tt><big>(</big><em>text: str</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#drystal.Font:draw_plain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as <a class="reference internal" href="#font-draw"><em>draw</em></a>, except it doesn&#8217;t align nor accept formating.
+<dd><p>Same as <a class="reference internal" href="#drystal.Font:draw" title="drystal.Font:draw"><tt class="xref lua lua-meth docutils literal"><span class="pre">Font:draw()</span></tt></a>, except it doesn&#8217;t align nor accept formating.
 Use this function for faster text drawing.</p>
 </dd></dl>
 
@@ -1114,7 +1161,7 @@ Use this function for faster text drawing.</p>
 <dl class="method">
 <dt id="drystal.Font:sizeof_plain">
 <tt class="descname">sizeof_plain</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#drystal.Font:sizeof_plain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns width and height the text would use if it was drawn on the screen by <a class="reference internal" href="#font-draw-plain"><em>draw_plain</em></a>.</p>
+<dd><p>Returns width and height the text would use if it was drawn on the screen by <a class="reference internal" href="#drystal.Font:draw_plain" title="drystal.Font:draw_plain"><tt class="xref lua lua-meth docutils literal"><span class="pre">Font:draw_plain()</span></tt></a>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1127,7 +1174,7 @@ Use this function for faster text drawing.</p>
 
 </div>
 <div class="section" id="particle-system">
-<h2><a class="toc-backref" href="#id19">Particle System</a><a class="headerlink" href="#particle-system" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">Particle System</a><a class="headerlink" href="#particle-system" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="drystal.System">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">System</tt><a class="headerlink" href="#drystal.System" title="Permalink to this definition">¶</a></dt>
@@ -1145,8 +1192,8 @@ Use this function for faster text drawing.</p>
 
 <dl class="method">
 <dt id="drystal.System:emit">
-<tt class="descname">emit</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.System:emit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Emits one particle. This function is useful when the system is paused and you want a fixed number of particle emission at one particular frame. You still need to call <em>update</em> so the particles get updated.</p>
+<tt class="descname">emit</tt><big>(</big><span class="optional">[</span><em>amount=1: int</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.System:emit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emits <tt class="docutils literal"><span class="pre">n</span></tt> particle(s). This function is useful when the system is paused and you want a fixed number of particle emission at one particular frame. You still need to call <em>update</em> so the particles get updated.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1203,6 +1250,12 @@ Use this function for faster text drawing.</p>
 <dt>
 <tt class="descname">add_color</tt><big>(</big><em>at_lifetime</em>, <em>minr</em>, <em>maxr</em>, <em>ming</em>, <em>maxg</em>, <em>minb</em>, <em>maxg</em><big>)</big></dt>
 <dd><p>Adds a random color at a desired particle&#8217;s lifetime.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.System:set_texture">
+<tt class="descname">set_texture</tt><big>(</big><em>tex: Surface</em><big>)</big><a class="headerlink" href="#drystal.System:set_texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the texture of the particles. By default, the system doesn&#8217;t have texture, particles will be represented by colored squares.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1267,15 +1320,15 @@ Use this function for faster text drawing.</p>
 </div>
 </div>
 <div class="section" id="physics">
-<h2><a class="toc-backref" href="#id20">Physics</a><a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Physics</a><a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h2>
 <p>Learning how to use <a class="reference external" href="http://box2d.org/">Box2D</a> will help to hunder Drystal&#8217;s physics module.</p>
 <dl class="function">
 <dt id="drystal.init_physics">
 <tt class="descclassname">drystal.</tt><tt class="descname">init_physics</tt><big>(</big><em>gravity_x: float</em>, <em>gravity_y: float</em><span class="optional">[</span>, <em>pixels_per_meter</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.init_physics" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference internal" href="#set-pixels-per-meter"><em>set_pixels_per_meter</em></a>.</p>
+<dd><p>See <a class="reference internal" href="#drystal.set_pixels_per_meter" title="drystal.set_pixels_per_meter"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.set_pixels_per_meter()</span></tt></a>.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">If <tt class="docutils literal"><span class="pre">init_physics</span></tt> is not called before other physics functions, errors will occur.</p>
+<p class="last">If <a class="reference internal" href="#drystal.init_physics" title="drystal.init_physics"><tt class="xref lua lua-func docutils literal"><span class="pre">init_physics()</span></tt></a> is not called before other physics functions, errors will occur.</p>
 </div>
 </dd></dl>
 
@@ -1303,7 +1356,7 @@ Use this function for faster text drawing.</p>
 <dd><p>Returns the ratio used to convert coordinates and forces to/from Box2D.</p>
 </dd></dl>
 
-<span class="target" id="set-pixels-per-meter"></span><dl class="function">
+<dl class="function">
 <dt id="drystal.set_pixels_per_meter">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_pixels_per_meter</tt><big>(</big><em>pixels_per_meter: float</em><big>)</big><a class="headerlink" href="#drystal.set_pixels_per_meter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the ratio used to convert coordinates and forces to/from Box2D.
@@ -1353,14 +1406,14 @@ If the boolean is <cite>false</cite> then the body and position is not kept for 
 
 <dl class="function">
 <dt id="drystal.new_shape">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'box'</em>, <em>width</em>, <em>height</em>, <em>x</em>, <em>y</em><big>)</big> &rarr; Shape<a class="headerlink" href="#drystal.new_shape" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'box'</em>, <em>width</em>, <em>height</em><span class="optional">[</span>, <em>x=0</em>, <em>y=0</em><span class="optional">]</span><big>)</big> &rarr; Shape<a class="headerlink" href="#drystal.new_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a <em>box</em> shape.
 The box is centered on x,y which means you have to add an offset of width/2,height/2 during your draws.</p>
 </dd></dl>
 
 <dl class="function">
 <dt>
-<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'circle'</em>, <em>radius</em>, <em>x</em>, <em>y</em><big>)</big> &rarr; Shape</dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_shape</tt><big>(</big><em>'circle'</em>, <em>radius</em><span class="optional">[</span>, <em>x=0</em>, <em>y=0</em><span class="optional">]</span><big>)</big> &rarr; Shape</dt>
 <dd><p>Creates a <em>circle</em> shape.</p>
 </dd></dl>
 
@@ -1403,7 +1456,7 @@ The box is centered on x,y which means you have to add an offset of width/2,heig
 <dl class="function">
 <dt>
 <tt class="descclassname">drystal.</tt><tt class="descname">new_joint</tt><big>(</big><em>'gear'</em>, <em>body1</em>, <em>body2</em>, <em>joint1</em>, <em>joint2</em>, <em>ratio</em><span class="optional">[</span>, <em>collide_connected</em><span class="optional">]</span><big>)</big> &rarr; GearJoint</dt>
-<dd><p>Creates a gear joint. <tt class="docutils literal"><span class="pre">joint1</span></tt> and <tt class="docutils literal"><span class="pre">joint2</span></tt> must be either revolute joints or a prismatic joints.</p>
+<dd><p>Creates a gear joint. <tt class="docutils literal"><span class="pre">joint1</span></tt> and <tt class="docutils literal"><span class="pre">joint2</span></tt> must be either revolute joints or prismatic joints.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1745,11 +1798,17 @@ The box is centered on x,y which means you have to add an offset of width/2,heig
 
 </div>
 <div class="section" id="audio">
-<h2><a class="toc-backref" href="#id21">Audio</a><a class="headerlink" href="#audio" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">Audio</a><a class="headerlink" href="#audio" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The audio module allows you to play short sounds with the <a class="reference internal" href="#drystal.Sound" title="drystal.Sound"><tt class="xref lua lua-class docutils literal"><span class="pre">Sound</span></tt></a> class and stream ambiance music
+with the <a class="reference internal" href="#drystal.Music" title="drystal.Music"><tt class="xref lua lua-class docutils literal"><span class="pre">Music</span></tt></a> class.</p>
+<p>For each class you can either load the audio data from a file or generate it with a callback function.</p>
+</div></blockquote>
 <dl class="class">
 <dt id="drystal.Music">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Music</tt><a class="headerlink" href="#drystal.Music" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Musics are for large audio files, mainly for ambiance musics during the game.</p>
+<dl class="method">
 <dt id="drystal.Music:play">
 <tt class="descname">play</tt><big>(</big><span class="optional">[</span><em>loop=false: bool</em><span class="optional">[</span>, <em>onend_callback: function</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.Music:play" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plays the music (from the beginning). If <tt class="docutils literal"><span class="pre">loop</span></tt> is true, the music will loop forever.
@@ -1759,7 +1818,7 @@ The box is centered on x,y which means you have to add an offset of width/2,heig
 <dl class="method">
 <dt id="drystal.Music:set_pitch">
 <tt class="descname">set_pitch</tt><big>(</big><em>pitch: float</em><big>)</big><a class="headerlink" href="#drystal.Music:set_pitch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the pitch of the music. <tt class="docutils literal"><span class="pre">pitch</span></tt> must be &gt;= 0.</p>
+<dd><p>Sets the pitch of the music. <tt class="docutils literal"><span class="pre">pitch</span></tt> must be &gt; 0.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1795,17 +1854,22 @@ The box is centered on x,y which means you have to add an offset of width/2,heig
 <dl class="function">
 <dt>
 <tt class="descclassname">drystal.</tt><tt class="descname">load_music</tt><big>(</big><em>callback: function[, samplesrate=44100: int]) -&gt; Music | (nil, error</em><big>)</big></dt>
-<dd></dd></dl>
+<dd><p>Loads a music according to a callback function generating the music.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="drystal.set_music_volume">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_music_volume</tt><big>(</big><em>volume: float [0-1]</em><big>)</big><a class="headerlink" href="#drystal.set_music_volume" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the global music volume.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="drystal.Sound">
 <em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Sound</tt><a class="headerlink" href="#drystal.Sound" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Sounds are for short audio files like special effects (e.g. a jump, a shot fired or an explosion).</p>
+<p>They are loaded directly into memory. So if you want to play longer audio files it is recommended to use <a class="reference internal" href="#drystal.Music" title="drystal.Music"><tt class="xref lua lua-class docutils literal"><span class="pre">Music</span></tt></a> objects
+which stream the music instead of playing it directly.</p>
+<dl class="method">
 <dt id="drystal.Sound:play">
 <tt class="descname">play</tt><big>(</big><em>[volume=1[, x=0[, y=0[, pitch=1]]]</em><big>)</big><a class="headerlink" href="#drystal.Sound:play" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plays the sound at given volume, position and pitch.</p>
@@ -1813,13 +1877,13 @@ The box is centered on x,y which means you have to add an offset of width/2,heig
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">volume float between 0 and 1</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Param:</th><td class="field-body">x float between -1 and 1 (-1 is full left, 1 is full right)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">y float between -1 and 1</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Param:</th><td class="field-body">pitch float greater than or equal to 0</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>volume</strong> (<em>float</em>) &#8211; between 0 and 1</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; between -1 and 1 (-1 is full left, 1 is full right)</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; between -1 and 1</li>
+<li><strong>pitch</strong> (<em>float</em>) &#8211; greater than 0</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1837,7 +1901,8 @@ If you want to use positional audio, it has to be mono audio.</p>
 <dl class="function">
 <dt>
 <tt class="descclassname">drystal.</tt><tt class="descname">load_sound</tt><big>(</big><em>callback: function</em>, <em>numsamples: int) -&gt; Sound | (nil</em>, <em>error</em><big>)</big></dt>
-<dd></dd></dl>
+<dd><p>Loads a sound according to a callback function generating the sound.</p>
+</dd></dl>
 
 <dl class="function">
 <dt>
@@ -1847,11 +1912,12 @@ If you want to use positional audio, it has to be mono audio.</p>
 <dl class="function">
 <dt id="drystal.set_sound_volume">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_sound_volume</tt><big>(</big><em>volume: float [0-1]</em><big>)</big><a class="headerlink" href="#drystal.set_sound_volume" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Sets the global sound volume.</p>
+</dd></dl>
 
 </div>
 <div class="section" id="storage">
-<h2><a class="toc-backref" href="#id22">Storage</a><a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">Storage</a><a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
 <p>In browser, this module uses Javascript&#8217;s localStorage feature. In desktop, it uses files.</p>
 <p>Storage is a way to store data for futur executions.</p>
 <dl class="function">
@@ -1877,7 +1943,7 @@ In the browser, data are stored in the <tt class="docutils literal"><span class=
 </div>
 </div>
 <div class="section" id="web">
-<h2><a class="toc-backref" href="#id23">Web</a><a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">Web</a><a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h2>
 <dl class="data">
 <dt>
 <tt class="descname">is_web: boolean</tt></dt>
@@ -1889,7 +1955,7 @@ In the browser, data are stored in the <tt class="docutils literal"><span class=
 <tt class="descclassname">drystal.</tt><tt class="descname">wget</tt><big>(</big><em>url: string</em>, <em>filename: string</em>, <em>onload: function</em>, <em>onerror: function</em><big>)</big><a class="headerlink" href="#drystal.wget" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last"><tt class="docutils literal"><span class="pre">wget</span></tt> is not available on the desktop and will throw an error if it is used on the desktop.</p>
+<p class="last"><a class="reference internal" href="#drystal.wget" title="drystal.wget"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.wget()</span></tt></a> is not available on the desktop and will throw an error if it is used on the desktop.</p>
 </div>
 </dd></dl>
 
@@ -1898,10 +1964,41 @@ In the browser, data are stored in the <tt class="docutils literal"><span class=
 <tt class="descclassname">drystal.</tt><tt class="descname">run_js</tt><big>(</big><em>script: str</em><big>)</big><a class="headerlink" href="#drystal.run_js" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last"><tt class="docutils literal"><span class="pre">run_js</span></tt> is not available on the desktop and will throw an error if it is used on the desktop.</p>
+<p class="last"><a class="reference internal" href="#drystal.run_js" title="drystal.run_js"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.run_js()</span></tt></a> is not available on the desktop and will throw an error if it is used on the desktop.</p>
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="timer">
+<h2><a class="toc-backref" href="#id23">Timer</a><a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="drystal.Timer">
+<em class="property">class </em><tt class="descclassname">drystal.</tt><tt class="descname">Timer</tt><a class="headerlink" href="#drystal.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="drystal.Timer:update">
+<tt class="descname">update</tt><big>(</big><em>dt: float</em><big>)</big><a class="headerlink" href="#drystal.Timer:update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the timer. <tt class="docutils literal"><span class="pre">dt</span></tt> is the time elapsed expressed in second, as in <a class="reference internal" href="#drystal.update" title="drystal.update"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.update()</span></tt></a>.
+If the timer finishes, <tt class="xref lua lua-data docutils literal"><span class="pre">finished</span></tt> is set to <cite>true</cite>. If <tt class="docutils literal"><span class="pre">callback</span></tt> is not <tt class="code lua docutils literal"><span class="keyword constant"><span class="pre">nil</span></span></tt>, it is called.</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<tt class="descname">finished: boolean</tt></dt>
+<dd><p>Indicates if the timer is finished or not.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.new_timer">
+<tt class="descclassname">drystal.</tt><tt class="descname">new_timer</tt><big>(</big><em>duration: float</em><span class="optional">[</span>, <em>callback</em><span class="optional">]</span><big>)</big> &rarr; Timer<a class="headerlink" href="#drystal.new_timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new timer with specified duration and callback.</p>
+</dd></dl>
+
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><em>You</em> have to update the timer, otherwise it won&#8217;t finish and the callback won&#8217;t be called.</p>
+</div>
 </div>
 <div class="section" id="utils">
 <h2><a class="toc-backref" href="#id24">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
@@ -1964,7 +2061,7 @@ In the browser, data are stored in the <tt class="docutils literal"><span class=
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v1.0',
+            VERSION:'v1.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
