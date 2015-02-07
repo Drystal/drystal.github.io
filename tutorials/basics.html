@@ -230,8 +230,6 @@ And we reuse the <tt class="docutils literal"><span class="pre">W</span></tt> an
 <p>First, we use our favorite image manipulation program to get a <a class="reference download internal" href="../_downloads/spritesheet.png"><tt class="xref download docutils literal"><span class="pre">spritesheet</span></tt></a> with our
 graphics. Then, we load this spritesheet with <a class="reference internal" href="../api.html#drystal.load_surface" title="drystal.load_surface"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.load_surface()</span></tt></a> which give us a
 <a class="reference internal" href="../api.html#drystal.Surface" title="drystal.Surface"><tt class="xref lua lua-class docutils literal"><span class="pre">Surface</span></tt></a> that we can manipulate.</p>
-<p>For instance, we can set the filter of the surface to <tt class="xref lua lua-data docutils literal"><span class="pre">drystal.BILINEAR</span></tt> in order to get a better surface
-rendering.</p>
 <p>Finally, we define a table containing the location of the sprites and their size. It will be needed later when we will
 draw the sprites.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -243,14 +241,12 @@ draw the sprites.</p>
  7
  8
  9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">local</span> <span class="n">drystal</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;</span><span class="s">drystal&#39;</span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">local</span> <span class="n">drystal</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;</span><span class="s">drystal&#39;</span>
 
 <span class="kd">local</span> <span class="n">W</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span>
 
 <span class="c1">-- load resources</span>
 <span class="kd">local</span> <span class="n">spritesheet</span> <span class="o">=</span> <span class="n">drystal</span><span class="p">.</span><span class="n">load_surface</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">spritesheet.png&#39;</span><span class="p">)</span>
-<span class="n">spritesheet</span><span class="p">:</span><span class="n">set_filter</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">BILINEAR</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">sprites</span> <span class="o">=</span> <span class="p">{</span>
     <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">128</span> <span class="p">},</span> <span class="c1">-- O</span>
     <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">128</span> <span class="p">},</span> <span class="c1">-- X</span>
@@ -383,7 +379,7 @@ is pressed. We use this function to call another function that plays a turn acco
 <span class="k">end</span>
 
 <span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">mouse_press</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">button</span> <span class="o">==</span> <span class="n">drystal</span><span class="p">.</span><span class="n">BUTTON_LEFT</span> <span class="k">then</span>
+    <span class="k">if</span> <span class="n">button</span> <span class="o">==</span> <span class="n">drystal</span><span class="p">.</span><span class="n">buttons</span><span class="p">.</span><span class="n">left</span> <span class="k">then</span>
         <span class="n">play</span><span class="p">()</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -545,7 +541,7 @@ or diagonal line:</p>
 <span class="k">end</span>
 
 <span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">mouse_press</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">button</span> <span class="o">==</span> <span class="n">drystal</span><span class="p">.</span><span class="n">BUTTON_LEFT</span> <span class="k">then</span>
+    <span class="k">if</span> <span class="n">button</span> <span class="o">==</span> <span class="n">drystal</span><span class="p">.</span><span class="n">buttons</span><span class="p">.</span><span class="n">left</span> <span class="k">then</span>
         <span class="k">if</span> <span class="n">ended</span> <span class="k">then</span>
             <span class="n">restart</span><span class="p">()</span>
         <span class="k">else</span>
@@ -918,8 +914,7 @@ go to the next tutorial where we will show you how to do a space invader!</p>
 178
 179
 180
-181
-182</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">local</span> <span class="n">drystal</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;</span><span class="s">drystal&#39;</span>
+181</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">local</span> <span class="n">drystal</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;</span><span class="s">drystal&#39;</span>
 
 <span class="kd">local</span> <span class="n">W</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span>
 
@@ -927,7 +922,6 @@ go to the next tutorial where we will show you how to do a space invader!</p>
 <span class="kd">local</span> <span class="n">font</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">load_font</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">arial.ttf&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
 <span class="kd">local</span> <span class="n">smallfont</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">load_font</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">arial.ttf&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
 <span class="kd">local</span> <span class="n">spritesheet</span> <span class="o">=</span> <span class="n">drystal</span><span class="p">.</span><span class="n">load_surface</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">spritesheet.png&#39;</span><span class="p">)</span>
-<span class="n">spritesheet</span><span class="p">:</span><span class="n">set_filter</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">BILINEAR</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">sprites</span> <span class="o">=</span> <span class="p">{</span>
 	<span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">128</span> <span class="p">},</span> <span class="c1">-- O</span>
 	<span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">128</span> <span class="p">},</span> <span class="c1">-- X</span>
@@ -1093,7 +1087,7 @@ go to the next tutorial where we will show you how to do a space invader!</p>
 <span class="k">end</span>
 
 <span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">mouse_press</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">)</span>
-	<span class="k">if</span> <span class="n">button</span> <span class="o">==</span> <span class="n">drystal</span><span class="p">.</span><span class="n">BUTTON_LEFT</span> <span class="k">then</span>
+	<span class="k">if</span> <span class="n">button</span> <span class="o">==</span> <span class="n">drystal</span><span class="p">.</span><span class="n">buttons</span><span class="p">.</span><span class="n">left</span> <span class="k">then</span>
 		<span class="k">if</span> <span class="n">ended</span> <span class="k">then</span>
 			<span class="n">restart</span><span class="p">()</span>
 		<span class="k">else</span>
