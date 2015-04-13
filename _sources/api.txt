@@ -98,7 +98,7 @@ To receive events, you have to defined some of the following functions.
 
    Called when the mouse is moved. ``dx`` and ``dy`` are difference between the current position and the last one.
 
-.. lua:function:: mouse_press(x, y, button: int)
+.. lua:function:: mouse_press(x, y, button: integer)
 
    Called when a button (or mouse wheel) is pressed.
 
@@ -112,7 +112,7 @@ To receive events, you have to defined some of the following functions.
          - ``drystal.buttons.wheel_up`` (= 4),
          - or ``drystal.buttons.wheel_down`` (= 5).
 
-.. lua:function:: mouse_release(x, y, button)
+.. lua:function:: mouse_release(x, y, button: integer)
 
    Called when a button (or mouse wheel) is released.
 
@@ -159,7 +159,7 @@ Window
 
    :lua:meth:`.Surface:draw_from`
 
-.. lua:function:: resize(width: int, height: int)
+.. lua:function:: resize(width: integer, height: integer)
 
    Resizes the window (or the canvas in the browser) to the specified dimensions.
 
@@ -238,6 +238,9 @@ Surface
 
    .. warning:: A surface is limited to 2048x2048 pixels. We follow the `WebGL Stats <http://webglstats.com/>`_ and we use the highest texture size at 100%.
 
+   .. lua:method:: get_pixel(x, y) -> r, g, b, a
+
+      Returns red/green/blue/alpha components at given pixel position. Top-right is at (1, 1) and bottom-left is at (surface.w, surface.h) included.
 
 .. lua:function:: new_surface(width, height)
 
@@ -248,7 +251,7 @@ Surface
 
       local surf = drystal.new_surface(200, 200)
       surf:draw_on() -- the following draw function will act on this surface
-      drystal.set_color(255, 255, 255)
+      drystal.set_color('white')
       drystal.draw_circle(surf.w / 2, surf.h / 2, 100) -- draw a white circle inside the surface
       drystal.screen:draw_on()
       ...
@@ -268,6 +271,14 @@ Drawing primitives
 .. lua:function:: set_color(red: float [0-255], green: float [0-255], blue: float [0-255])
 
    Sets current color used by ``draw_*`` functions.
+
+.. lua:function:: set_color(color: table)
+
+   Sets current color used by ``draw_*`` functions. ``color`` should contains 3 values at keys 1, 2 and 3. For example, ``{128, 128, 128}`` represents gray.
+
+.. lua:function:: set_color(color: string)
+
+   Sets current color used by ``draw_*`` functions. ``color`` should be either a color name from the :lua:data:`colors` table or a '#rgb' or '#rrggbb' CSS-like string.
 
 .. lua:function:: set_alpha(alpha: float [0-255])
 
@@ -409,6 +420,13 @@ The camera can be used the modify position and size of the following draws.
 
    Resets the camera fields to default values.
 
+.. lua:function:: drystal.camera.push()
+
+   Saves the current camera state. You can then restore it with :lua:func:`drystal.camera.pop`.
+
+.. lua:function:: drystal.camera.pop()
+
+   Restores the camera to the previous state.
 
 Buffer
 ^^^^^^
@@ -436,10 +454,9 @@ A buffer can **only contain one type of shape** (point, textured point, line, tr
       If a buffer is freed, you cannot call :lua:meth:`.Buffer:reset`, :lua:meth:`.Buffer:use` or
       :lua:func:`.Buffer.upload_and_free` anymore or errors will be thrown.
 
-.. lua:function:: new_buffer([size: int]) -> Buffer
+.. lua:function:: new_buffer([initial_size: integer]) -> Buffer
 
-   Creates a buffer of the specified ``size``. ``size`` must be a multiple of the number of points of the shape you put in it.
-   For example, if you put triangles, ``size`` must be a multiple of 3.
+   Creates a buffer of the specified ``initial_size``. Once the buffer is full, it is resized.
 
 .. lua:function:: use_default_buffer()
 
@@ -559,6 +576,7 @@ Colors
 .. lua:data:: colors
 
    This table contains all of the `W3C colors <http://www.w3.org/TR/css3-color/#svg-color>`_.
+   You can also create colors from the #rgb or #rrggbb syntax by indexing this table, like so: ``drystal.colors['#F0F']``.
 
 .. code::
 
@@ -665,7 +683,7 @@ Font rendering
          - :lua:`"test {r:255|g:0|b:0|!}"` will print the ``!`` in red,
          - :lua:`"{outline|outg:255|t{nooutline|e}st}"` will print ``test`` with a green outline, except the ``e``.
 
-      :param int alignement:
+      :param integer alignement:
 
          - if alignment is ``drystal.aligns.left`` (= 1), text is left aligned (default)
          - if alignment is ``drystal.aligns.center`` (= 2), text is centered around ``x``.
@@ -698,7 +716,7 @@ Particle System
 
       Starts emitting over time.
 
-   .. lua:method:: emit([amount=1: int])
+   .. lua:method:: emit([amount=1: integer])
 
       Emits ``n`` particle(s). This function is useful when the system is paused and you want a fixed number of particle emission at one particular frame. You still need to call *update* so the particles get updated.
 
@@ -709,6 +727,10 @@ Particle System
    .. lua:method:: reset()
 
       Removes all existing particles.
+
+   .. lua:method:: clone() -> System
+
+      Returns an exact copy of the system.
 
    .. lua:method:: draw([x=0: float[, y=0: float]))
 
@@ -814,9 +836,10 @@ Particle System
 ..    .. lua:method:: set_max_initial_velocity(max: float)
 ..    .. lua:method:: get_max_initial_velocity() -> float
 
-.. lua:function:: new_system(x, y) -> System
+.. lua:function:: new_system(x, y[, size=256]) -> System
 
 Creates a new particle system at given position.
+You can specify the default number of particles held by the system with the ``size`` parameter. If the system need to hold more particles, it resizes automatically.
 
 .. warning:: By default, attributes are initialized with random values. Make sure to call appropriate setters to obtain the desired particle effect.
 
@@ -1199,7 +1222,7 @@ Music
 
    .. warning:: Only the Ogg_ format is available.
 
-.. lua:function:: load_music(callback: function[, samplesrate=44100: int]) -> Music | (nil, error)
+.. lua:function:: load_music(callback: function[, samplesrate=44100: integer]) -> Music | (nil, error)
 
    Loads a music according to a callback function generating the music.
 
@@ -1231,7 +1254,7 @@ Sound
    Loads a sound from a file. It has to be in WAV_ format. Only 44100Hz, 8 bits or 16 bits are supported.
    If you want to use positional audio, it has to be mono audio.
 
-.. lua:function:: load_sound(callback: function, numsamples: int) -> Sound | (nil, error)
+.. lua:function:: load_sound(callback: function, numsamples: integer) -> Sound | (nil, error)
 
    Loads a sound according to a callback function generating the sound.
 

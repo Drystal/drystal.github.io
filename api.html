@@ -266,7 +266,7 @@ when the screen is resized.</div></blockquote>
 
 <dl class="function">
 <dt id="drystal.mouse_press">
-<tt class="descclassname">drystal.</tt><tt class="descname">mouse_press</tt><big>(</big><em>x</em>, <em>y</em>, <em>button: int</em><big>)</big><a class="headerlink" href="#drystal.mouse_press" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">mouse_press</tt><big>(</big><em>x</em>, <em>y</em>, <em>button: integer</em><big>)</big><a class="headerlink" href="#drystal.mouse_press" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when a button (or mouse wheel) is pressed.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -292,7 +292,7 @@ when the screen is resized.</div></blockquote>
 
 <dl class="function">
 <dt id="drystal.mouse_release">
-<tt class="descclassname">drystal.</tt><tt class="descname">mouse_release</tt><big>(</big><em>x</em>, <em>y</em>, <em>button</em><big>)</big><a class="headerlink" href="#drystal.mouse_release" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">mouse_release</tt><big>(</big><em>x</em>, <em>y</em>, <em>button: integer</em><big>)</big><a class="headerlink" href="#drystal.mouse_release" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called when a button (or mouse wheel) is released.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -366,7 +366,7 @@ For example, if <em>shift</em> and <em>d</em> are pressed, <a class="reference i
 
 <dl class="function">
 <dt id="drystal.resize">
-<tt class="descclassname">drystal.</tt><tt class="descname">resize</tt><big>(</big><em>width: int</em>, <em>height: int</em><big>)</big><a class="headerlink" href="#drystal.resize" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">resize</tt><big>(</big><em>width: integer</em>, <em>height: integer</em><big>)</big><a class="headerlink" href="#drystal.resize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resizes the window (or the canvas in the browser) to the specified dimensions.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -493,6 +493,12 @@ You also need to ensure that there is no border or margin for the canvas in your
 <p class="first admonition-title">Warning</p>
 <p class="last">A surface is limited to 2048x2048 pixels. We follow the <a class="reference external" href="http://webglstats.com/">WebGL Stats</a> and we use the highest texture size at 100%.</p>
 </div>
+<dl class="method">
+<dt id="drystal.Surface:get_pixel">
+<tt class="descname">get_pixel</tt><big>(</big><em>x</em>, <em>y</em><big>)</big> &rarr; r, g, b, a<a class="headerlink" href="#drystal.Surface:get_pixel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns red/green/blue/alpha components at given pixel position. Top-right is at (1, 1) and bottom-left is at (surface.w, surface.h) included.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -507,7 +513,7 @@ By default, the surface is transparent.</p>
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span class="kd">local</span> <span class="n">surf</span> <span class="o">=</span> <span class="n">drystal</span><span class="p">.</span><span class="n">new_surface</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">surf</span><span class="p">:</span><span class="n">draw_on</span><span class="p">()</span> <span class="c1">-- the following draw function will act on this surface</span>
-<span class="n">drystal</span><span class="p">.</span><span class="n">set_color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">drystal</span><span class="p">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">white&#39;</span><span class="p">)</span>
 <span class="n">drystal</span><span class="p">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">surf</span><span class="p">.</span><span class="n">w</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">surf</span><span class="p">.</span><span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1">-- draw a white circle inside the surface</span>
 <span class="n">drystal</span><span class="p">.</span><span class="n">screen</span><span class="p">:</span><span class="n">draw_on</span><span class="p">()</span>
 <span class="o">...</span>
@@ -533,6 +539,18 @@ If the file does not exist or is invalid, <a class="reference internal" href="#d
 <dt id="drystal.set_color">
 <tt class="descclassname">drystal.</tt><tt class="descname">set_color</tt><big>(</big><em>red: float [0-255], green: float [0-255], blue: float [0-255]</em><big>)</big><a class="headerlink" href="#drystal.set_color" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets current color used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">set_color</tt><big>(</big><em>color: table</em><big>)</big></dt>
+<dd><p>Sets current color used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions. <tt class="docutils literal"><span class="pre">color</span></tt> should contains 3 values at keys 1, 2 and 3. For example, <tt class="docutils literal"><span class="pre">{128,</span> <span class="pre">128,</span> <span class="pre">128}</span></tt> represents gray.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">set_color</tt><big>(</big><em>color: string</em><big>)</big></dt>
+<dd><p>Sets current color used by <tt class="docutils literal"><span class="pre">draw_*</span></tt> functions. <tt class="docutils literal"><span class="pre">color</span></tt> should be either a color name from the <a class="reference internal" href="#drystal.colors" title="drystal.colors"><tt class="xref lua lua-data docutils literal"><span class="pre">colors</span></tt></a> table or a &#8216;#rgb&#8217; or &#8216;#rrggbb&#8217; CSS-like string.</p>
 </dd></dl>
 
 <dl class="function">
@@ -762,6 +780,18 @@ the last 6 represent the destination triangle. They can have different sizes to 
 <dd><p>Resets the camera fields to default values.</p>
 </dd></dl>
 
+<dl class="function">
+<dt id="drystal.drystal.camera.push">
+<tt class="descclassname">drystal.camera.</tt><tt class="descname">push</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.drystal.camera.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the current camera state. You can then restore it with <a class="reference internal" href="#drystal.drystal.camera.pop" title="drystal.drystal.camera.pop"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.camera.pop()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="drystal.drystal.camera.pop">
+<tt class="descclassname">drystal.camera.</tt><tt class="descname">pop</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.drystal.camera.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restores the camera to the previous state.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="buffer">
 <h3><a class="toc-backref" href="#id12">Buffer</a><a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h3>
@@ -799,9 +829,8 @@ If a buffer is freed, you cannot call <a class="reference internal" href="#dryst
 
 <dl class="function">
 <dt id="drystal.new_buffer">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_buffer</tt><big>(</big><span class="optional">[</span><em>size: int</em><span class="optional">]</span><big>)</big> &rarr; Buffer<a class="headerlink" href="#drystal.new_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a buffer of the specified <tt class="docutils literal"><span class="pre">size</span></tt>. <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of the number of points of the shape you put in it.
-For example, if you put triangles, <tt class="docutils literal"><span class="pre">size</span></tt> must be a multiple of 3.</p>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_buffer</tt><big>(</big><span class="optional">[</span><em>initial_size: integer</em><span class="optional">]</span><big>)</big> &rarr; Buffer<a class="headerlink" href="#drystal.new_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a buffer of the specified <tt class="docutils literal"><span class="pre">initial_size</span></tt>. Once the buffer is full, it is resized.</p>
 </dd></dl>
 
 <dl class="function">
@@ -987,7 +1016,8 @@ Additional uniforms can be declared by the <tt class="docutils literal"><span cl
 <dl class="data">
 <dt id="drystal.colors">
 <tt class="descclassname">drystal.</tt><tt class="descname">colors</tt><a class="headerlink" href="#drystal.colors" title="Permalink to this definition">¶</a></dt>
-<dd><p>This table contains all of the <a class="reference external" href="http://www.w3.org/TR/css3-color/#svg-color">W3C colors</a>.</p>
+<dd><p>This table contains all of the <a class="reference external" href="http://www.w3.org/TR/css3-color/#svg-color">W3C colors</a>.
+You can also create colors from the #rgb or #rrggbb syntax by indexing this table, like so: <tt class="docutils literal"><span class="pre">drystal.colors['#F0F']</span></tt>.</p>
 </dd></dl>
 
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1170,7 +1200,7 @@ A particular syntax can be used to create some text effects, for example:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>alignement</strong> (<em>int</em>) &#8211; <ul>
+<li><strong>alignement</strong> (<em>integer</em>) &#8211; <ul>
 <li>if alignment is <tt class="docutils literal"><span class="pre">drystal.aligns.left</span></tt> (= 1), text is left aligned (default)</li>
 <li>if alignment is <tt class="docutils literal"><span class="pre">drystal.aligns.center</span></tt> (= 2), text is centered around <tt class="docutils literal"><span class="pre">x</span></tt>.</li>
 <li>if alignment is <tt class="docutils literal"><span class="pre">drystal.aligns.right</span></tt> (= 3), text is right aligned.</li>
@@ -1224,7 +1254,7 @@ Use this function for faster text drawing.</p>
 
 <dl class="method">
 <dt id="drystal.System:emit">
-<tt class="descname">emit</tt><big>(</big><span class="optional">[</span><em>amount=1: int</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.System:emit" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">emit</tt><big>(</big><span class="optional">[</span><em>amount=1: integer</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#drystal.System:emit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Emits <tt class="docutils literal"><span class="pre">n</span></tt> particle(s). This function is useful when the system is paused and you want a fixed number of particle emission at one particular frame. You still need to call <em>update</em> so the particles get updated.</p>
 </dd></dl>
 
@@ -1238,6 +1268,12 @@ Use this function for faster text drawing.</p>
 <dt id="drystal.System:reset">
 <tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#drystal.System:reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes all existing particles.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="drystal.System:clone">
+<tt class="descname">clone</tt><big>(</big><big>)</big> &rarr; System<a class="headerlink" href="#drystal.System:clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an exact copy of the system.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1336,10 +1372,11 @@ Use this function for faster text drawing.</p>
 
 <dl class="function">
 <dt id="drystal.new_system">
-<tt class="descclassname">drystal.</tt><tt class="descname">new_system</tt><big>(</big><em>x</em>, <em>y</em><big>)</big> &rarr; System<a class="headerlink" href="#drystal.new_system" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">new_system</tt><big>(</big><em>x</em>, <em>y</em><span class="optional">[</span>, <em>size=256</em><span class="optional">]</span><big>)</big> &rarr; System<a class="headerlink" href="#drystal.new_system" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<p>Creates a new particle system at given position.</p>
+<p>Creates a new particle system at given position.
+You can specify the default number of particles held by the system with the <tt class="docutils literal"><span class="pre">size</span></tt> parameter. If the system need to hold more particles, it resizes automatically.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">By default, attributes are initialized with random values. Make sure to call appropriate setters to obtain the desired particle effect.</p>
@@ -1902,7 +1939,7 @@ with the <a class="reference internal" href="#drystal.Music" title="drystal.Musi
 
 <dl class="function">
 <dt>
-<tt class="descclassname">drystal.</tt><tt class="descname">load_music</tt><big>(</big><em>callback: function[, samplesrate=44100: int]) -&gt; Music | (nil, error</em><big>)</big></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">load_music</tt><big>(</big><em>callback: function[, samplesrate=44100: integer]) -&gt; Music | (nil, error</em><big>)</big></dt>
 <dd><p>Loads a music according to a callback function generating the music.</p>
 </dd></dl>
 
@@ -1952,7 +1989,7 @@ If you want to use positional audio, it has to be mono audio.</p>
 
 <dl class="function">
 <dt>
-<tt class="descclassname">drystal.</tt><tt class="descname">load_sound</tt><big>(</big><em>callback: function</em>, <em>numsamples: int) -&gt; Sound | (nil</em>, <em>error</em><big>)</big></dt>
+<tt class="descclassname">drystal.</tt><tt class="descname">load_sound</tt><big>(</big><em>callback: function</em>, <em>numsamples: integer) -&gt; Sound | (nil</em>, <em>error</em><big>)</big></dt>
 <dd><p>Loads a sound according to a callback function generating the sound.</p>
 </dd></dl>
 
