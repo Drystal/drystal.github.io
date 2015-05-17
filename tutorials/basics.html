@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Basics: Tic-tac-toe &mdash; Drystal v1.1 documentation</title>
@@ -14,7 +15,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -28,13 +28,15 @@
   
 
   
+
+  
     <link rel="top" title="Drystal v1.1 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="../tutorials.html"/>
         <link rel="next" title="Resources" href="../resources.html"/>
         <link rel="prev" title="Tutorials" href="../tutorials.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -45,28 +47,73 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Drystal</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> Drystal
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul class="current">
+          
+          
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#engine">Engine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#event">Event</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#graphics">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#engine">Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#callbacks">Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#event">Event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#id1">Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#graphics">Graphics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#window">Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#surface">Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#drawing-primitives">Drawing primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#blending">Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#camera">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#buffer">Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#shader">Shader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#post-processing">Post processing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#colors">Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#sprite">Sprite</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#font-rendering">Font rendering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#particle-system">Particle System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#physics">Physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#physics">Physics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#shape">Shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#body">Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#mousejoint">MouseJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#ropejoint">RopeJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#distancejoint">DistanceJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#revolutejoint">RevoluteJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#prismaticjoint">PrismaticJoint</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#audio">Audio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#music">Music</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#sound">Sound</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#storage">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#web">Web</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#timer">Timer</a></li>
@@ -74,15 +121,36 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Basics: Tic-tac-toe</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Basics: Tic-tac-toe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-our-first-window">Getting our first window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drawing-the-board">Drawing the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drawing-sprites">Drawing sprites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#loading-the-resources">Loading the resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#let-s-draw">Let&#8217;s draw!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-mouse-events">Getting mouse events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is-there-a-winner">Is there a winner ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gameover-screen">Gameover screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bonus-highlighting-the-tiles">Bonus: Highlighting the tiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-code">Final code</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../resources.html#useful-links">Useful links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources.html#useful-links">Useful links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resources.html#lua">Lua</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resources.html#box2d">Box2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resources.html#lua-libraries">Lua libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resources.html#moonscript">Moonscript</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -109,13 +177,15 @@
     <li>Basics: Tic-tac-toe</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/tutorials/basics.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/tutorials/basics.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="basics-tic-tac-toe">
 <h1>Basics: Tic-tac-toe<a class="headerlink" href="#basics-tic-tac-toe" title="Permalink to this headline">¶</a></h1>
@@ -144,8 +214,8 @@ Drystal by creating a <a class="reference external" href="https://en.wikipedia.o
 <div class="code highlight-lua"><div class="highlight"><pre><span class="kd">local</span> <span class="n">drystal</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">&#39;</span><span class="s">drystal&#39;</span>
 </pre></div>
 </div>
-<p>Then, we define <a class="reference internal" href="../api.html#drystal.init" title="drystal.init"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.init()</span></tt></a> which will be called by Drystal when the script will be loaded.</p>
-<p>In this function we call <a class="reference internal" href="../api.html#drystal.resize" title="drystal.resize"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.resize()</span></tt></a> with the width and height of our window.</p>
+<p>Then, we define <a class="reference internal" href="../api.html#drystal.init" title="drystal.init"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.init()</span></code></a> which will be called by Drystal when the script will be loaded.</p>
+<p>In this function we call <a class="reference internal" href="../api.html#drystal.resize" title="drystal.resize"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.resize()</span></code></a> with the width and height of our window.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -159,17 +229,17 @@ Drystal by creating a <a class="reference external" href="https://en.wikipedia.o
 <span class="k">end</span>
 </pre></div>
 </td></tr></table></div>
-<p>Now that we have a window we define <a class="reference internal" href="../api.html#drystal.draw" title="drystal.draw"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw()</span></tt></a> which will be called by Drystal when drawing the window.
+<p>Now that we have a window we define <a class="reference internal" href="../api.html#drystal.draw" title="drystal.draw"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.draw()</span></code></a> which will be called by Drystal when drawing the window.
 This function will contain all the code needed to have beautiful graphics for our game. We start by drawing a black background
 and through this tutorial you will see how we can complete this function.</p>
-<p>When using Drystal drawing functions you need to set the color you want to use. For this there is <a class="reference internal" href="../api.html#drystal.set_color" title="drystal.set_color"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.set_color()</span></tt></a>, it takes
-RGB values (from 0 to 255) or a <a class="reference internal" href="../api.html#drystal.Color" title="drystal.Color"><tt class="xref lua lua-class docutils literal"><span class="pre">Color</span></tt></a>.</p>
+<p>When using Drystal drawing functions you need to set the color you want to use. For this there is <a class="reference internal" href="../api.html#drystal.set_color" title="drystal.set_color"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.set_color()</span></code></a>, it takes
+RGB values (from 0 to 255) or a <a class="reference internal" href="../api.html#drystal.Color" title="drystal.Color"><code class="xref lua lua-class docutils literal"><span class="pre">Color</span></code></a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Drystal provides a table, <a class="reference internal" href="../api.html#drystal.colors" title="drystal.colors"><tt class="xref lua lua-data docutils literal"><span class="pre">drystal.colors</span></tt></a>, which contains all of the
+<p class="last">Drystal provides a table, <a class="reference internal" href="../api.html#drystal.colors" title="drystal.colors"><code class="xref lua lua-data docutils literal"><span class="pre">drystal.colors</span></code></a>, which contains all of the
 <a class="reference external" href="http://www.w3.org/TR/css3-color/#svg-color">W3C colors</a>.</p>
 </div>
-<p>After setting the right color, you just call <a class="reference internal" href="../api.html#drystal.draw_background" title="drystal.draw_background"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_background()</span></tt></a> and it&#8217;s done.</p>
+<p>After setting the right color, you just call <a class="reference internal" href="../api.html#drystal.draw_background" title="drystal.draw_background"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_background()</span></code></a> and it&#8217;s done.</p>
 <div class="code highlight-lua"><div class="highlight"><pre><span class="k">function</span> <span class="nc">drystal</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
     <span class="n">drystal</span><span class="p">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">colors</span><span class="p">.</span><span class="n">black</span><span class="p">)</span>
     <span class="n">drystal</span><span class="p">.</span><span class="n">draw_background</span><span class="p">()</span>
@@ -183,8 +253,8 @@ beginning of a wonderful adventure!</p>
 <div class="section" id="drawing-the-board">
 <h2><a class="toc-backref" href="#id2">Drawing the board</a><a class="headerlink" href="#drawing-the-board" title="Permalink to this headline">¶</a></h2>
 <p>Having a black background is nice but we need to show our players where to put X or O. So let&#8217;s draw a simple board with white lines, shall we?</p>
-<p>For this we reuse <a class="reference internal" href="../api.html#drystal.set_color" title="drystal.set_color"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.set_color()</span></tt></a> and use <a class="reference internal" href="../api.html#drystal.draw_line" title="drystal.draw_line"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_line()</span></tt></a> which draws a line between two points.
-And we reuse the <tt class="docutils literal"><span class="pre">W</span></tt> and <tt class="docutils literal"><span class="pre">H</span></tt> variables (width and height) to draw lines that fit the window.</p>
+<p>For this we reuse <a class="reference internal" href="../api.html#drystal.set_color" title="drystal.set_color"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.set_color()</span></code></a> and use <a class="reference internal" href="../api.html#drystal.draw_line" title="drystal.draw_line"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_line()</span></code></a> which draws a line between two points.
+And we reuse the <code class="docutils literal"><span class="pre">W</span></code> and <code class="docutils literal"><span class="pre">H</span></code> variables (width and height) to draw lines that fit the window.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -227,9 +297,9 @@ And we reuse the <tt class="docutils literal"><span class="pre">W</span></tt> an
 <p>Now we focus on drawing the noughts and crosses on the board by using <a class="reference external" href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)">sprites</a>.</p>
 <div class="section" id="loading-the-resources">
 <h3><a class="toc-backref" href="#id4">Loading the resources</a><a class="headerlink" href="#loading-the-resources" title="Permalink to this headline">¶</a></h3>
-<p>First, we use our favorite image manipulation program to get a <a class="reference download internal" href="../_downloads/spritesheet.png"><tt class="xref download docutils literal"><span class="pre">spritesheet</span></tt></a> with our
-graphics. Then, we load this spritesheet with <a class="reference internal" href="../api.html#drystal.load_surface" title="drystal.load_surface"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.load_surface()</span></tt></a> which give us a
-<a class="reference internal" href="../api.html#drystal.Surface" title="drystal.Surface"><tt class="xref lua lua-class docutils literal"><span class="pre">Surface</span></tt></a> that we can manipulate.</p>
+<p>First, we use our favorite image manipulation program to get a <a class="reference download internal" href="../_downloads/spritesheet.png"><code class="xref download docutils literal"><span class="pre">spritesheet</span></code></a> with our
+graphics. Then, we load this spritesheet with <a class="reference internal" href="../api.html#drystal.load_surface" title="drystal.load_surface"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.load_surface()</span></code></a> which give us a
+<a class="reference internal" href="../api.html#drystal.Surface" title="drystal.Surface"><code class="xref lua lua-class docutils literal"><span class="pre">Surface</span></code></a> that we can manipulate.</p>
 <p>Finally, we define a table containing the location of the sprites and their size. It will be needed later when we will
 draw the sprites.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -258,7 +328,7 @@ draw the sprites.</p>
 <h3><a class="toc-backref" href="#id5">Let&#8217;s draw!</a><a class="headerlink" href="#let-s-draw" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have our resources we can tell Drystal what to draw at each frame.</p>
 <p>First, we keep a state of the game (i.e. where are the marks) and we define a matrix of 9 by 9 where
-an empty string represents a free tile, <tt class="docutils literal"><span class="pre">x</span></tt> the player one, <tt class="docutils literal"><span class="pre">o</span></tt> the player two.</p>
+an empty string represents a free tile, <code class="docutils literal"><span class="pre">x</span></code> the player one, <code class="docutils literal"><span class="pre">o</span></code> the player two.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -270,16 +340,16 @@ an empty string represents a free tile, <tt class="docutils literal"><span class
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Second, we tell Drystal from which <a class="reference internal" href="../api.html#drystal.Surface" title="drystal.Surface"><tt class="xref lua lua-class docutils literal"><span class="pre">Surface</span></tt></a> to draw from, we can use the method
-<a class="reference internal" href="../api.html#drystal.Surface:draw_from" title="drystal.Surface:draw_from"><tt class="xref lua lua-meth docutils literal"><span class="pre">Surface:draw_from()</span></tt></a> for this:</p>
+<p>Second, we tell Drystal from which <a class="reference internal" href="../api.html#drystal.Surface" title="drystal.Surface"><code class="xref lua lua-class docutils literal"><span class="pre">Surface</span></code></a> to draw from, we can use the method
+<a class="reference internal" href="../api.html#drystal.Surface:draw_from" title="drystal.Surface:draw_from"><code class="xref lua lua-meth docutils literal"><span class="pre">Surface:draw_from()</span></code></a> for this:</p>
 <div class="code highlight-lua"><div class="highlight"><pre><span class="kd">local</span> <span class="k">function</span> <span class="nf">draw_marks</span><span class="p">()</span>
     <span class="n">spritesheet</span><span class="p">:</span><span class="n">draw_from</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Last, for each tile in the matrix we draw a sprite or nothing according to its content.</p>
 <p>Different functions can be used to draw sprites from the current surface. For this game we use
-<a class="reference internal" href="../api.html#drystal.draw_sprite_resized" title="drystal.draw_sprite_resized"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_sprite_resized()</span></tt></a> which allows us to resize a sprite before drawing it. Since,
-we divided the window into 9 tiles, the size of one tile is <tt class="docutils literal"><span class="pre">W</span> <span class="pre">/</span> <span class="pre">3</span></tt> and <tt class="docutils literal"><span class="pre">H</span> <span class="pre">/</span> <span class="pre">3</span></tt>.</p>
+<a class="reference internal" href="../api.html#drystal.draw_sprite_resized" title="drystal.draw_sprite_resized"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_sprite_resized()</span></code></a> which allows us to resize a sprite before drawing it. Since,
+we divided the window into 9 tiles, the size of one tile is <code class="docutils literal"><span class="pre">W</span> <span class="pre">/</span> <span class="pre">3</span></code> and <code class="docutils literal"><span class="pre">H</span> <span class="pre">/</span> <span class="pre">3</span></code>.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -334,7 +404,7 @@ we divided the window into 9 tiles, the size of one tile is <tt class="docutils 
 <h2><a class="toc-backref" href="#id6">Getting mouse events</a><a class="headerlink" href="#getting-mouse-events" title="Permalink to this headline">¶</a></h2>
 <p>We have a game that currently only display a hardcoded state of a game and I think we can agree on the fact that this
 is not really a funny game. We need to let the players interact by clicking on the tile where they want to make a move.</p>
-<p>Drystal calls <a class="reference internal" href="../api.html#drystal.mouse_press" title="drystal.mouse_press"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.mouse_press()</span></tt></a> whenever a mouse button is pressed with the coordinate and which button
+<p>Drystal calls <a class="reference internal" href="../api.html#drystal.mouse_press" title="drystal.mouse_press"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.mouse_press()</span></code></a> whenever a mouse button is pressed with the coordinate and which button
 is pressed. We use this function to call another function that plays a turn according to the current player.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -459,7 +529,7 @@ or diagonal line:</p>
 <span class="k">end</span>
 </pre></div>
 </td></tr></table></div>
-<p>This ways, each time a player makes a move, we call <tt class="docutils literal"><span class="pre">check_winner()</span></tt> and <tt class="docutils literal"><span class="pre">check_board_full()</span></tt> to know if the game ended:</p>
+<p>This ways, each time a player makes a move, we call <code class="docutils literal"><span class="pre">check_winner()</span></code> and <code class="docutils literal"><span class="pre">check_board_full()</span></code> to know if the game ended:</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -555,14 +625,14 @@ or diagonal line:</p>
 <div class="section" id="gameover-screen">
 <h2><a class="toc-backref" href="#id8">Gameover screen</a><a class="headerlink" href="#gameover-screen" title="Permalink to this headline">¶</a></h2>
 <p>The players would like to know who won the game or if there is a tie, so we need a proper gameover screen.</p>
-<p>First, we load two fonts with <a class="reference internal" href="../api.html#drystal.load_font" title="drystal.load_font"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.load_font()</span></tt></a> that will be used to write on the window who won:</p>
+<p>First, we load two fonts with <a class="reference internal" href="../api.html#drystal.load_font" title="drystal.load_font"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.load_font()</span></code></a> that will be used to write on the window who won:</p>
 <div class="code highlight-lua"><div class="highlight"><pre><span class="c1">-- load resources</span>
 <span class="kd">local</span> <span class="n">font</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">load_font</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">arial.ttf&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
 <span class="kd">local</span> <span class="n">smallfont</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">drystal</span><span class="p">.</span><span class="n">load_font</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">arial.ttf&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Then, we draw a transparent rectangle which fade the window by using <a class="reference internal" href="../api.html#drystal.set_alpha" title="drystal.set_alpha"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.set_alpha()</span></tt></a>
-and <a class="reference internal" href="../api.html#drystal.draw_rect" title="drystal.draw_rect"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_rect()</span></tt></a>. The former modifying the alpha channel which control the transparency
+<p>Then, we draw a transparent rectangle which fade the window by using <a class="reference internal" href="../api.html#drystal.set_alpha" title="drystal.set_alpha"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.set_alpha()</span></code></a>
+and <a class="reference internal" href="../api.html#drystal.draw_rect" title="drystal.draw_rect"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_rect()</span></code></a>. The former modifying the alpha channel which control the transparency
 and the latter drawing a rectangle that we use to draw a rectangle the size of the window.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -607,7 +677,7 @@ and the latter drawing a rectangle that we use to draw a rectangle the size of t
 <span class="k">end</span>
 </pre></div>
 </td></tr></table></div>
-<p>Finally, we update <a class="reference internal" href="../api.html#drystal.draw" title="drystal.draw"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.draw()</span></tt></a> so that we call <tt class="docutils literal"><span class="pre">draw_gameover()</span></tt> when <tt class="docutils literal"><span class="pre">ended</span></tt> is <tt class="docutils literal"><span class="pre">true</span></tt>:</p>
+<p>Finally, we update <a class="reference internal" href="../api.html#drystal.draw" title="drystal.draw"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.draw()</span></code></a> so that we call <code class="docutils literal"><span class="pre">draw_gameover()</span></code> when <code class="docutils literal"><span class="pre">ended</span></code> is <code class="docutils literal"><span class="pre">true</span></code>:</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -637,8 +707,8 @@ and the latter drawing a rectangle that we use to draw a rectangle the size of t
 </div>
 <div class="section" id="bonus-highlighting-the-tiles">
 <h2><a class="toc-backref" href="#id9">Bonus: Highlighting the tiles</a><a class="headerlink" href="#bonus-highlighting-the-tiles" title="Permalink to this headline">¶</a></h2>
-<p>We want the current player to know where the pointer is. For this we define a table <tt class="docutils literal"><span class="pre">highlighted_tile</span></tt> and we update it
-with our definition of <a class="reference internal" href="../api.html#drystal.mouse_motion" title="drystal.mouse_motion"><tt class="xref lua lua-func docutils literal"><span class="pre">drystal.mouse_motion()</span></tt></a> which will be called when the mouse is moved by the player.</p>
+<p>We want the current player to know where the pointer is. For this we define a table <code class="docutils literal"><span class="pre">highlighted_tile</span></code> and we update it
+with our definition of <a class="reference internal" href="../api.html#drystal.mouse_motion" title="drystal.mouse_motion"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.mouse_motion()</span></code></a> which will be called when the mouse is moved by the player.</p>
 <div class="code highlight-lua"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1106,10 +1176,10 @@ go to the next tutorial where we will show you how to do a space invader!</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../resources.html" class="btn btn-neutral float-right" title="Resources"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../resources.html" class="btn btn-neutral float-right" title="Resources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../tutorials.html" class="btn btn-neutral" title="Tutorials"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../tutorials.html" class="btn btn-neutral" title="Tutorials" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1121,9 +1191,10 @@ go to the next tutorial where we will show you how to do a space invader!</p>
         &copy; Copyright 2014, Jérémy Anger.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 

@@ -6,6 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Index &mdash; Drystal v1.1 documentation</title>
@@ -15,7 +16,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -29,10 +29,12 @@
   
 
   
+
+  
     <link rel="top" title="Drystal v1.1 documentation" href="index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -43,28 +45,73 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> Drystal</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Drystal
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#engine">Engine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#event">Event</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#graphics">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#engine">Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#callbacks">Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#event">Event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#id1">Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#graphics">Graphics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#window">Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#surface">Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#drawing-primitives">Drawing primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#blending">Blending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#camera">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#buffer">Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#shader">Shader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.html#post-processing">Post processing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#colors">Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#sprite">Sprite</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#font-rendering">Font rendering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#particle-system">Particle System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#physics">Physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#physics">Physics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#shape">Shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#body">Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#mousejoint">MouseJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#ropejoint">RopeJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#distancejoint">DistanceJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#revolutejoint">RevoluteJoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#prismaticjoint">PrismaticJoint</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#audio">Audio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#music">Music</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#sound">Sound</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#storage">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#web">Web</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#timer">Timer</a></li>
@@ -72,15 +119,36 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/basics.html">Basics: Tic-tac-toe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/basics.html">Basics: Tic-tac-toe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#getting-our-first-window">Getting our first window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#drawing-the-board">Drawing the board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#drawing-sprites">Drawing sprites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/basics.html#loading-the-resources">Loading the resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/basics.html#let-s-draw">Let&#8217;s draw!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#getting-mouse-events">Getting mouse events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#is-there-a-winner">Is there a winner ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#gameover-screen">Gameover screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#bonus-highlighting-the-tiles">Bonus: Highlighting the tiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/basics.html#final-code">Final code</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="resources.html#useful-links">Useful links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#useful-links">Useful links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resources.html#lua">Lua</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resources.html#box2d">Box2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resources.html#lua-libraries">Lua libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resources.html#moonscript">Moonscript</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -105,11 +173,13 @@
     <li></li>
       <li class="wy-breadcrumbs-aside">
         
+          
+        
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
 
 <h1 id="index">Index</h1>
@@ -1135,9 +1205,10 @@
         &copy; Copyright 2014, Jérémy Anger.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
