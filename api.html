@@ -630,12 +630,6 @@ If the file does not exist or is invalid, <a class="reference internal" href="#d
 </dd></dl>
 
 <dl class="function">
-<dt id="drystal.set_line_width">
-<code class="descclassname">drystal.</code><code class="descname">set_line_width</code><big>(</big><em>width: float</em><big>)</big><a class="headerlink" href="#drystal.set_line_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the current line width used by <a class="reference internal" href="#drystal.draw_line" title="drystal.draw_line"><code class="xref lua lua-func docutils literal"><span class="pre">drystal.draw_line()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="drystal.draw_background">
 <code class="descclassname">drystal.</code><code class="descname">draw_background</code><big>(</big><big>)</big><a class="headerlink" href="#drystal.draw_background" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears the current <a class="reference internal" href="#drystal.current_draw_on" title="drystal.current_draw_on"><code class="xref lua lua-data docutils literal"><span class="pre">current_draw_on</span></code></a> surface.</p>
@@ -660,7 +654,7 @@ The point will be textured with the surface bound to <a class="reference interna
 
 <dl class="function">
 <dt id="drystal.draw_line">
-<code class="descclassname">drystal.</code><code class="descname">draw_line</code><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em><big>)</big><a class="headerlink" href="#drystal.draw_line" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">drystal.</code><code class="descname">draw_line</code><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>width=1: float</em><big>)</big><a class="headerlink" href="#drystal.draw_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a line between the two given points.</p>
 </dd></dl>
 
@@ -698,7 +692,7 @@ the last 6 represent the destination triangle. They can have different sizes to 
 
 <dl class="function">
 <dt id="drystal.draw_square">
-<code class="descclassname">drystal.</code><code class="descname">draw_square</code><big>(</big><em>x</em>, <em>y</em>, <em>w</em>, <em>h</em><big>)</big><a class="headerlink" href="#drystal.draw_square" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">drystal.</code><code class="descname">draw_square</code><big>(</big><em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>width</em><big>)</big><a class="headerlink" href="#drystal.draw_square" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a non-filled rectangle.</p>
 </dd></dl>
 
@@ -722,7 +716,7 @@ the last 6 represent the destination triangle. They can have different sizes to 
 
 <dl class="function">
 <dt id="drystal.draw_polyline">
-<code class="descclassname">drystal.</code><code class="descname">draw_polyline</code><big>(</big><em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>...</em><big>)</big><a class="headerlink" href="#drystal.draw_polyline" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">drystal.</code><code class="descname">draw_polyline</code><big>(</big><em>loop</em>, <em>width</em>, <em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>...</em><big>)</big><a class="headerlink" href="#drystal.draw_polyline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a non-filled polygon.</p>
 </dd></dl>
 
